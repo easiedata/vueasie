@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    name: 'easie-hr',
+    name: 'easieHr',
     props:{
       value:{required:true},
       hr_label:{default:['']}

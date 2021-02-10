@@ -19,7 +19,7 @@
   import easie_radio from '../easie_radio/easie_radio.vue';
 
   export default {
-    name: 'easie-radio-list',
+    name: 'easieRadioList',
     components: {
       'easie-radio': easie_radio
     },

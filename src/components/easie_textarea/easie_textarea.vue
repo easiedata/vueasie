@@ -23,7 +23,7 @@
 
 <script>
     export default {
-      name: 'easie-textarea',
+      name: 'easieTextarea',
       props:{
         value: {required:true},
         icon: {default:''},

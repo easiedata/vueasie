@@ -6,7 +6,7 @@ import { faAngleUp, faAngleDown, faTimes, faChevronDown } from '@fortawesome/fre
 // external stuff
 import VTooltip from 'v-tooltip';
 
-import "../assets/scss/styles.scss";
+import "@/assets/scss/styles.scss";
 
 Vue.use(VTooltip);
 

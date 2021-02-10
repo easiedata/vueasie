@@ -12,17 +12,8 @@
       <div class="easie-modal-body">
         <slot></slot>
       </div>
-      <div v-if="has_footer" class="e-d-flex e-align-items-center e-justify-content-between easie-modal-footer">
+      <div v-if="has_footer" class="e-d-flex e-align-items-center e-justify-content-center easie-modal-footer">
         <slot name="footer"></slot>
-        <button
-          v-if="has_cancel"
-          @click="close_modal"
-          class="e-btn e-btn-light hover-bg-easie hover-text-white"
-          style="border: 1px solid lightgray;">
-          <font-awesome-icon icon="times"
-          ></font-awesome-icon>
-            Fechar
-        </button>
       </div>
     </div>
   </div>
@@ -30,7 +21,7 @@
 
 <script>
   export default {
-    name: "easie-modal",
+    name: "easieModal",
     props: {
       modal_super:{default:false},
       modal_disp_ref: { default: "" },

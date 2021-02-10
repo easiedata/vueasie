@@ -26,7 +26,7 @@
     import ClickOutside from 'vue-click-outside';
 
     export default {
-      name: "easie-sketch-color",
+      name: "easieSketchColor",
       components: {
         "sketch-picker": Sketch
       },

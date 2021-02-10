@@ -21,7 +21,7 @@
   import ClickOutside from 'vue-click-outside'
 
   export default {
-    name: 'tooltip-label',
+    name: 'tooltipLabel',
     directives: {
       ClickOutside
     },

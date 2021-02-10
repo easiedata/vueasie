@@ -1,109 +1,82 @@
 <template>
-  <div class="easie-form-input-wrapper e-d-flex e-align-items-center e-bg-white e-w-100" :class="{'focus': active, 'error_input': show_error}">
-    <template v-if="icon">
-      <i  class="easie-form-input-icon e-mx-2 " :class="icon"></i>
-    </template>
-    <span @click="$refs.input_ref.focus()" class="easie-form-input-label" :class="{'show-label':show_label}">
-      {{ placeholder }}
-    </span>
+  <div 
+    class="easie-form-input-wrapper e-d-flex e-align-items-center e-bg-white e-w-100" 
+    :class="{'focus': active}">
     <input
-      v-if="input_type=='normal'"
       ref="input_ref"
-      @input="$emit('input', val)"
-      v-model="val"
-      class="e-w-100 e-ml-2"
+      @input="on_input"
       @focus="focus"
       @blur="blur"
-      :type="type"
+      v-inputmask="i_mask"
+      v-model="val"
+      class="e-w-100 e-ml-2"
+      :type="input_type"
       style="outline: none !important;"
-      />
-      <input
-        v-if="input_type=='number'"
-        :oninput="number_input(value)"
-        ref="input_ref"
-        @input="$emit('input', Number(val))"
-        v-model="val"
-        class="e-w-100 e-ml-2"
-        @focus="focus"
-        @blur="blur"
-        :type="type"
-        style="outline: none !important;"
-        />
+/>
   </div>
 </template>
 
 <script>
+  import Inputmask from 'inputmask';
   export default {
-    name: 'easie-form-input',
+    name: 'easieFormInput',
+    directives:{
+      inputmask:{
+        bind(el, binding){
+          if(Object.keys(binding.value).length){
+            Inputmask(binding.value).mask(el)
+          } 
+        }
+      }
+    },
     props:{
       value:{required:true},
-      icon:{default: ''},
       placeholder:{default: ''},
       type: {default: ''},
-      error_msg:{default: ''}
+      i_mask:{default: ()=> {return {}}}
     },
     data() {
       return {
-        val: this.get_v(),
+        val: this.get_value(this.value),
         active: false,
-        show_error: this.error_msg!=''
       }
     },
     computed:{
       input_type(){
-        if(this.type=='number'){
-          return 'number';
+        let easie_types = ['number', 'date', 'text', 'time']
+        if(easie_types.indexOf(this.type)>=0){
+          return 'search';
         }
-        return 'normal';
-      },
-      show_label(){
-        if(this.active){
-          return true;
+        else {
+          return this.type;
         }
-        if(this.val || this.val === 0){
-          return true
-        }
-        return false;
       }
     },
     methods:{
-      number_input(value){
-        try{
-          value = Number(value.replace(/[^0-9]/, ''));
+      get_value(value){
+        if(value.length==0){
+          return value;
         }
-        catch(err){
-          return;
-        }
-
-      },
-      get_v(){
         if(this.type == 'number'){
-          try{
-            return Number(this.value.replace(/[^0-9]/g, ''));
-          }
-          catch(err){
-            return this.value
-          }
-
+          value = (value[0]=='-' ? '-' : '') + value.toString().replace(/[^0-9\.,]/g, '')
+          
         }
-        else{
-          return this.value
-        }
+        return value;
+      },
+      on_input(){
+        this.val = this.get_value(this.val)
+        this.$emit('input', this.val);
       },
       focus(){
         this.active = true;
-        if(this.error_msg){
-          this.show_error = true;
-        }
       },
       blur(){
         this.active = false;
-        this.show_error = false;
       },
     },
     watch:{
       value(){
-        this.val = this.get_v()
+        this.val = this.get_value(this.value);
       }
     }
   }
@@ -112,14 +85,7 @@
 <style lang="scss" scoped>
   @import "../../assets/scss/styles.scss";
 
-  .easie-form-input-icon {
-    align-self: center;
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  .easie-form-input-wrapper{
+   .easie-form-input-wrapper{
     cursor:pointer;
     position:relative;
     height:41px;
@@ -145,32 +111,11 @@
   }
 
   .easie-form-input-wrapper.focus{
-    border: 1px solid $primary;
+    border: 1px solid #2486be;
   }
 
   .easie-form-input-wrapper.focus *{
-    color: $primary;
-  }
-
-  .easie-form-input-label {
-    z-index:1;
-    font-size: 0.9rem !important;
-    color:rgba(0, 0, 0, 0.4);
-    display:block;
-    left:39px;
-    top:36px;
-    position:absolute;
-    text-align:left;
-    transform:matrix(1, 0, 0, 1, -3, -30.6);
-    transition-delay:0s;
-    transition-duration:0.2s;
-    transition-property:all;
-    transition-timing-function:ease;
-  }
-
-  .easie-form-input-label.show-label{
-    top: 0px;
-    left:12px;
+    color: #2486be;
   }
 
 </style>

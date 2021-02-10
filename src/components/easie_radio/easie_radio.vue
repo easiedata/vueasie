@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'easie-radio',
+    name: 'easieRadio',
     props:{
       value: {required:true},
       name: {required:true},

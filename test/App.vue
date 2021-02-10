@@ -32,7 +32,7 @@
         <easie-radio v-model="group_mode" opt="old" name="add-data-group-opt" >
         </easie-radio>
         <label
-          @click="group_mode='new'"
+          @click="group_mode=(group_mode=='old' ? 'new' : 'old')"
           class="hover-text-easie e-ml-2 e-mb-0"
           :class="{'text-easie':group_mode=='old'}"> Marcar opção</label>
       </div>

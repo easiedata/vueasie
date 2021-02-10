@@ -6,7 +6,7 @@
 
 <script>
     export default {
-      name: "easie-tab",
+      name: "easieTab",
       props: {
         name: { required: true },
         selected: { default: false }
