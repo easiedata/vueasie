@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://easiedata.com/" target="_blank">
-    <img width="220" src="https://easiedata.com/global/home/img/easiedata-p-500.png">
+    <img width="150" src="https://easiedata.com/global/home/img/easiedata-p-500.png">
   </a>
 </p>
 
@@ -25,7 +25,6 @@ Or use individual components:
 
 ``` javascript
 import Vue from 'vue'
-import { MdButton, MdContent, MdTabs } from 'vueasie'
 import { easieTextArea } from 'vueasie';
 ```
 
