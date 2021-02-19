@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: 'easieIcheckbox',
+    name: 'easie_checkbox',
     props:{
       value:{required:true},
       opt:{required:true}
