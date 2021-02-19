@@ -100,6 +100,7 @@
   @import "../../assets/scss/variables.scss";
 
   .overflow_class {
+    all: inherit;
     white-space: nowrap;
     align-self:center;
     text-overflow: ellipsis;
