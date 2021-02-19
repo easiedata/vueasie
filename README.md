@@ -1,6 +1,8 @@
+
+
 <p align="center">
-  <a href="https://easiedata.com/" target="_blank">
-    <img width="150" src="https://easiedata.com/global/home/img/easiedata-p-500.png">
+  <a href="https://www.easiedata.com/" target="_blank">
+    <img width="250" src="https://blog.easiedata.com/wp-content/uploads/2020/02/cropped-easiedata-e1582296162638-1.png">
   </a>
 </p>
 
