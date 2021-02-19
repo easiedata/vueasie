@@ -100,15 +100,11 @@
   @import "../../assets/scss/variables.scss";
 
   .overflow_class {
+    white-space: nowrap;
     align-self:center;
     text-overflow: ellipsis;
     overflow: hidden;
-/*    max-width: inherit !important;
-    cursor: inherit !important;
-    color: inherit !important;
-    font-weight: inherit !important;
-    font-family: inherit !important;
-    background: inherit !important;*/
+
   }
 
   .overflow_class.on-overflow {

@@ -1,21 +1,31 @@
-# vueasie
+<p align="center">
+  <a href="https://easiedata.com/" target="_blank">
+    <img width="220" src="https://easiedata.com/global/home/img/easiedata-p-500.png">
+  </a>
+</p>
 
-## Project setup
-```
-npm install
-```
+## Installation and Usage
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Install vueasie through npm
 
-### Compiles and minifies for production
-```
-npm run build
+``` bash
+npm install vueasie --save
 ```
 
-### Lints and fixes files
+Import or require Vue and Vueasie in your code:
+
+``` javascript
+import Vue from 'vue'
+import Vueasie from 'vueasie'
+
+Vue.use(Vueasie)
 ```
-npm run lint
+
+Or use individual components:
+
+``` javascript
+import Vue from 'vue'
+import { MdButton, MdContent, MdTabs } from 'vueasie'
+import { easieTextArea } from 'vueasie';
 ```
+
