@@ -301,7 +301,36 @@ fieldset:disabled a.e-btn {
 .show > .e-btn-secondary.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
 }
-
+.e-btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+.e-btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.e-btn-outline-secondary.focus,
+.e-btn-outline-secondary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+}
+.e-btn-outline-secondary.disabled,
+.e-btn-outline-secondary:disabled {
+    color: #6c757d;
+    background-color: transparent;
+}
+.e-btn-outline-secondary:not(:disabled):not(.disabled).active,
+.e-btn-outline-secondary:not(:disabled):not(.disabled):active,
+.show > .e-btn-outline-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.e-btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
+.e-btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
+.show > .e-btn-outline-secondary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+}
 .e-btn-light {
     color: #212529;
     background-color: #f8f9fa;
@@ -336,6 +365,10 @@ fieldset:disabled a.e-btn {
 .e-btn-light:not(:disabled):not(.disabled):active:focus,
 .show > .e-btn-light.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+}
+.e-btn-outline-easie {
+    color: #2486be !important;
+    border-color: #2486be !important;
 }
 
 .e-close {
@@ -375,6 +408,11 @@ a.e-close.disabled {
     display: flex !important;
 }
 
+.e-flex-column {
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+}
+
 .e-flex-wrap {
     -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important;
@@ -401,6 +439,11 @@ a.e-close.disabled {
     justify-content: space-around !important;
 }
 
+.e-justify-content-end {
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+}
+
 .e-align-items-center {
     -ms-flex-align: center !important;
     align-items: center !important;
@@ -408,6 +451,10 @@ a.e-close.disabled {
 .e-align-self-center {
     -ms-flex-item-align: center !important;
     align-self: center !important;
+}
+.e-align-self-stretch {
+    -ms-flex-item-align: stretch !important;
+    align-self: stretch !important;
 }
 
 .e-bg-white {
@@ -784,4 +831,10 @@ a.e-text-secondary:hover {
 }
 .hover-text-easie:hover {
     color: $primary !important;
+}
+.hover-text-white {
+    cursor:pointer !important;
+}
+.hover-text-white:hover {
+    color: white !important;
 }
