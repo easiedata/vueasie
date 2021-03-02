@@ -12,7 +12,9 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 library.add(faAngleDown, faAngleUp, faTimes, faChevronDown);
 
 let easiedata = Vue => {
+    console.log(easieComponents);
     Object.values(easieComponents).forEach((easieComponent) => {
+
     Vue.use(easieComponent)
   })
 

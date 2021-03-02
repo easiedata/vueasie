@@ -1,6 +1,6 @@
 <template>
-    <span class="e-d-flex e-align-items-center" >
-      <label class="switch">
+    <span class="e-d-flex e-align-items-center easie-switch-span" >
+      <label class="easie-switch">
         <input @input="on_input" :checked="value" v-model="value" type="checkbox"/>
         <div>
           <span>
@@ -32,7 +32,7 @@
 <style lang="scss" scoped>
   @import "../../assets/scss/styles.scss";
 
-  .switch {
+  .easie-switch {
     --line: #B0C4DE;
     --dot: #2486BE;
     --circle: #808080;
@@ -110,12 +110,12 @@
     }
   }
 
-  html {
+  html .easie-switch-span {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
   }
 
-  * {
+  * .easie-switch-span {
     box-sizing: inherit;
     &:before,
     &:after {

@@ -5,10 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faAngleUp, faAngleDown, faTimes, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 // external stuff
 import VTooltip from 'v-tooltip';
+import Vueasie from '@';
 
 import "@/assets/scss/styles.scss";
 
 Vue.use(VTooltip);
+Vue.use(Vueasie)
 
 library.add(faAngleDown, faAngleUp, faTimes, faChevronDown);
 

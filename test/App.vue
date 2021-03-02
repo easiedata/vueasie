@@ -9,11 +9,11 @@
       </div>
     </div>
     <div class="e-mt-4 e-px-4">
-      <easie-icheckbox
+      <easie-checkbox
         value='checked'
         ref="all_options_list_checkbox"
         opt="all_options">
-      </easie-icheckbox>
+      </easie-checkbox>
     </div>
     <div class="e-mt-4 e-px-4">
       <easie-form-input type="number" v-model="input_test" style='max-width:150px'>
@@ -76,7 +76,7 @@
     </div>
     <div class="e-d-flex e-mt-4 e-px-4">
       <span class="e-d-flex easiedata-group-el e-p-1" style="max-width: 100px">
-        <tooltip-label :key="data_op.name+1"  :value="data_op.value"></tooltip-label>
+        <tooltip-label class="tooltip-text-style" :key="data_op.name+1"  :value="data_op.value"></tooltip-label>
       </span>
     </div>
   </div>
@@ -84,37 +84,9 @@
 
 <script>
 
-  import { default as easieSketchColor } from '@/components/easie_sketch_color/easie_sketch_color.vue';
-  import { default as easieFormInput } from '@/components/easie_form_input/easie_form_input.vue';
-  import { default as easieHr } from '@/components/easie_hr/easie_hr.vue';
-  import { default as easieCheckbox } from '@/components/easie_checkbox/easie_checkbox.vue';
-  import { default as easieSelect } from '@/components/easie_select/easie_select.vue';
-  import { default as easieRadio } from '@/components/easie_radio/easie_radio.vue';
-  import { default as easieRadioList } from '@/components/easie_radio_list/easie_radio_list.vue';
-  import { default as easieSwitch } from '@/components/easie_switch/easie_switch.vue';
-  import { default as easieTextArea } from '@/components/easie_textarea/easie_textarea.vue';
-  import { default as easieTab } from '@/components/easie_tabs/easie_tab.vue';
-  import { default as easieTopTabs } from '@/components/easie_tabs/easie_top_tabs.vue';
-  import { default as easieModal } from '@/components/easie_modal/easie_modal.vue';
-  import { default as tooltipLabel } from '@/components/tooltip_label/tooltip_label.vue';
 
 export default {
   name: 'App',
-  components:{
-    'easie-sketch-color': easieSketchColor,
-    'easie-form-input': easieFormInput,
-    'easie-icheckbox': easieCheckbox,
-    'easie-hr': easieHr,
-    'easie-select': easieSelect,
-    'easie-radio': easieRadio,
-    'easie-radio-list': easieRadioList,
-    'easie-switch': easieSwitch,
-    'easie-textarea': easieTextArea,
-    'easie-tab': easieTab,
-    'easie-top-tabs': easieTopTabs,
-    'easie-modal': easieModal,
-    'tooltip-label': tooltipLabel,
-  },
   data() {
     return {
       text_color: '#696969',
@@ -155,10 +127,12 @@ export default {
 
 <style lang="scss" scoped>
 
-.easiedata-group-el {
-  /*border: 1px solid #ddd;*/
-  white-space: nowrap;
-  line-height:1.7;
-}
-
+  .easiedata-group-el {
+    /*border: 1px solid #ddd;*/
+    white-space: nowrap;
+    line-height:1.7;
+  }
+  // .tooltip-text-style {
+  //   color:blue;
+  // }
 </style>
