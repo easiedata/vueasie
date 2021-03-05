@@ -13,7 +13,6 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 library.add(faAngleDown, faAngleUp, faChevronDown, faSave, faWrench, faChartLine, faChartBar, faChartPie, faComment, faSuperscript);
 
 let easiedata = Vue => {
-    console.log(easieComponents);
     Object.values(easieComponents).forEach((easieComponent) => {
 
     Vue.use(easieComponent)
