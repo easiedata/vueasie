@@ -21,7 +21,7 @@
 
 <script>
   export default {
-    name: "easieModal",
+    name: "easie-modal",
     props: {
       modal_super:{default:false},
       modal_disp_ref: { default: "" },

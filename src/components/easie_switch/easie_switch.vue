@@ -16,7 +16,7 @@
 
 <script>
   export default {
-    name: 'easieSwitch',
+    name: 'easie-switch',
     props:{
       value:{required:false},
       s_label:{default:''}

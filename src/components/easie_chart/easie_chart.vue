@@ -32,7 +32,7 @@
   import { default_item_meta, default_chart_meta, default_echarts_json, default_toolbox, DEFAULT_DATA_COLORS } from './easiedata_meta/meta'
 
   export default {
-    name: 'easie_chart',
+    name: 'easie-chart',
     components:{
       'easie-echart': easie_echart,
       'chart-menu-tools': chart_menu_tools
@@ -60,7 +60,7 @@
     data(){
       return {
         group_list: this.value.group_list,
-        item_meta: this.$recursive_merge(this.value.item_meta, {...default_chart_meta}),
+        item_meta: this.recursive_merge(this.value.item_meta, {...default_chart_meta}),
         group_list_values: {},
         echarts_json: {...default_echarts_json },
         new_complete_data: 0,
@@ -398,6 +398,29 @@
       },
       reload(){
         this.get_group_list_values()
+      },
+      recursive_merge(upd_json, ref_json){
+        let merged_json = {}
+        let object_constructor = ({}).constructor;
+        for (let key in upd_json){
+            let val = upd_json[key];
+            if(val!==null){
+                if(val.constructor == object_constructor && ref_json.hasOwnProperty(key)){
+                    val = this.recursive_merge(upd_json[key], ref_json[key]);
+                }
+            }
+
+            merged_json[key] = val;
+        }
+
+        for(let key in ref_json){
+            let val = ref_json[key]
+            if(upd_json.hasOwnProperty(key)){
+                continue
+            }
+            merged_json[key] = val;
+        }
+        return merged_json;
       }
     }
   }

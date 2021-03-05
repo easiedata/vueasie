@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faAngleUp, faAngleDown, faChevronDown, faSave, faWrench, faChartLine, faChartBar, faChartPie, faComment, faSuperscript } from '@fortawesome/free-solid-svg-icons';
 import VTooltip from 'v-tooltip';
 
-
 Vue.use(VTooltip);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

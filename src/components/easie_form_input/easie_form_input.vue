@@ -1,6 +1,6 @@
 <template>
-  <div 
-    class="easie-form-input-wrapper e-d-flex e-align-items-center e-bg-white e-w-100" 
+  <div
+    class="easie-form-input-wrapper e-d-flex e-align-items-center e-bg-white e-w-100"
     :class="{'focus': active}">
     <input
       ref="input_ref"
@@ -19,13 +19,13 @@
 <script>
   import Inputmask from 'inputmask';
   export default {
-    name: 'easieFormInput',
+    name: 'easie-form-input',
     directives:{
       inputmask:{
         bind(el, binding){
           if(Object.keys(binding.value).length){
             Inputmask(binding.value).mask(el)
-          } 
+          }
         }
       }
     },
@@ -59,7 +59,7 @@
         }
         if(this.type == 'number'){
           value = (value[0]=='-' ? '-' : '') + value.toString().replace(/[^0-9\.,]/g, '')
-          
+
         }
         return value;
       },

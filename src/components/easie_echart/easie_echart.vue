@@ -5,7 +5,7 @@
 <script>
   import * as echarts from 'echarts';
   export default {
-    name: 'easie_echart',
+    name: 'easie-echart',
     props: {
       echarts_json: { required: true, type: Object },
       upd_chart_size: { default: 0 },

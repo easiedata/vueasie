@@ -13,7 +13,7 @@
 
 <script>
     export default {
-      name: "easieTopTabs",
+      name: "easie-top-tabs",
       data() {
         return { tabs: [] };
       },

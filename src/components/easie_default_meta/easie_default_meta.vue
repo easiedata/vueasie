@@ -63,7 +63,7 @@
   import easieHr from '../easie_hr/easie_hr.vue';
 
   export default {
-    name: 'easieDefaultMeta',
+    name: 'easie-default-meta',
     components: {
       'easie-textarea': easieTextarea,
       'easie-sketch-color': easieSketchColor,

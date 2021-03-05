@@ -32,7 +32,7 @@
   import vSelect from 'vue-select';
 
   export default {
-    name: 'easieSelect',
+    name: 'easie-select',
     components:{
       vSelect
     },
