@@ -11,7 +11,7 @@
       content:value,
       show: show_tooltip,
       trigger: 'manual'
-    }"   class="overflow_class" :class="{'on-overflow':is_overflowing}">
+    }"   class="easie-overflow-class" :class="{'on-overflow':is_overflowing}">
     <slot></slot>
     {{ value }}
   </label>
@@ -91,36 +91,26 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
+<style lang="scss">
+    @import "../../assets/scss/styles.scss";
 </style>
-
 <style lang="scss">
   @import '../../assets/css/easie_styles/tooltip_over.scss';
   @import "../../assets/scss/variables.scss";
 
-  .overflow_class {
+  .easie-overflow-class {
+    white-space: nowrap;
     align-self:center;
     text-overflow: ellipsis;
     overflow: hidden;
-/*    max-width: inherit !important;
-    cursor: inherit !important;
-    color: inherit !important;
-    font-weight: inherit !important;
-    font-family: inherit !important;
-    background: inherit !important;*/
   }
 
-  .overflow_class.on-overflow {
+  .easie-overflow-class.on-overflow {
     cursor:pointer !important;
   }
-  .overflow_class.on-overflow:hover {
+  .easie-overflow-class.on-overflow:hover {
     color:$primary;
   }
 
-  .label_popover_div{
-    width:auto !important;
-    padding:6px !important;
-  }
 
 </style>

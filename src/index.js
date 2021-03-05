@@ -13,6 +13,7 @@ library.add(faAngleDown, faAngleUp, faChevronDown, faSave, faWrench, faChartLine
 
 let easiedata = Vue => {
     Object.values(easieComponents).forEach((easieComponent) => {
+
     Vue.use(easieComponent)
   })
 
