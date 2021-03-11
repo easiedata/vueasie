@@ -92,9 +92,6 @@
 </script>
 
 <style lang="scss">
-    @import "../../assets/scss/styles.scss";
-</style>
-<style lang="scss">
   @import '../../assets/css/easie_styles/tooltip_over.scss';
   @import "../../assets/scss/variables.scss";
 

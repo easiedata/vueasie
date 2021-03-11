@@ -48,8 +48,8 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
+<style lang="scss">
+  @import "../../assets/scss/variables.scss";
 
   @media only screen and (max-width: 600px) {
     .easie-modal {

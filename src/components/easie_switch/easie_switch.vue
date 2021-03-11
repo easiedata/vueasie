@@ -29,8 +29,8 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
+<style lang="scss">
+  @import "../../assets/scss/variables.scss";
 
   .easie-switch {
     --line: #B0C4DE;

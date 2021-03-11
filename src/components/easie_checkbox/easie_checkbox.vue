@@ -48,7 +48,7 @@
 </script>
 
 <style lang="scss" >
-  @import "../../assets/scss/styles.scss";
+  @import "../../assets/scss/variables.scss";
 
   .easie-checkbox-label {
     position: relative;

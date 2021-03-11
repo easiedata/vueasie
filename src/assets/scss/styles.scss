@@ -773,37 +773,6 @@ a.e-close.disabled {
     pointer-events: none;
     cursor: default;
 }
-.e-nav-tabs {
-    border-bottom: 1px solid #dee2e6;
-}
-.e-nav-tabs .e-nav-item {
-    margin-bottom: -1px;
-}
-.e-nav-tabs .e-nav-link {
-    border: 1px solid transparent;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
-}
-.e-nav-tabs .e-nav-link:focus,
-.e-nav-tabs .e-nav-link:hover {
-    border-color: #e9ecef #e9ecef #dee2e6;
-}
-.e-nav-tabs .e-nav-link.disabled {
-    color: #6c757d;
-    background-color: transparent;
-    border-color: transparent;
-}
-.e-nav-tabs .e-nav-item.show .e-nav-link,
-.e-nav-tabs .e-nav-link.active {
-    color: #495057;
-    background-color: #fff;
-    border-color: #dee2e6 #dee2e6 #fff;
-}
-.e-nav-tabs .dropdown-menu {
-    margin-top: -1px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
 
 .e-text-secondary {
     color: #6c757d !important;

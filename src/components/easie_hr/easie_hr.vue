@@ -33,9 +33,8 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
-
+<style lang="scss">
+  @import "../../assets/scss/variables.scss";
   .easie-hr {
       cursor:pointer;
       font-size: 16px;
