@@ -18,7 +18,7 @@
         <font-awesome-icon icon="wrench"></font-awesome-icon>
       </button>
       <button
-        v-if="edit_mode" @click="$emit('save_component', {'component_key':component_key, item_data:{
+        v-if="edit_mode" v-show="save_item" @click="$emit('save_component', {'component_key':component_key, item_data:{
             group_list:group_list,
             item_meta: item_meta,
             filter_list: {}
@@ -53,6 +53,7 @@
       'easie-item-tools': easieItemTools
     },
     props: {
+      save_item: { default: true },
       edit_mode: { default: true },
       component_key: { default: '' },
       values_function: {
@@ -74,7 +75,7 @@
     },
     data(){
       return {
-        item_meta: this.recursive_merge(this.value.item_meta, {...default_item_meta}),
+        item_meta: this.$recursive_merge(this.value.item_meta, {...default_item_meta}),
         group_list: this.value.group_list,
         group_list_values: {},
         mount_ind: 0,
@@ -102,9 +103,9 @@
       },
       load_group_list_defaults(){
         this.group_list = this.group_list.map(group =>{
-          group['item_meta'] = this.recursive_merge(group['item_meta'], {...default_group_meta});
+          group['item_meta'] = this.$recursive_merge(group['item_meta'], {...default_group_meta});
           group['data_list'] = group['data_list'].map(data=>{
-            data['item_meta'] = this.recursive_merge(data['item_meta'], {...default_data_meta});
+            data['item_meta'] = this.$recursive_merge(data['item_meta'], {...default_data_meta});
             return data;
           })
           return group
@@ -126,29 +127,6 @@
       },
       close_modal(modal_ref) {
         this.disp_ref[modal_ref] = false;
-      },
-      recursive_merge(upd_json, ref_json){
-        let merged_json = {}
-        let object_constructor = ({}).constructor;
-        for (let key in upd_json){
-            let val = upd_json[key];
-            if(val!==null){
-                if(val.constructor == object_constructor && ref_json.hasOwnProperty(key)){
-                    val = this.recursive_merge(upd_json[key], ref_json[key]);
-                }
-            }
-
-            merged_json[key] = val;
-        }
-
-        for(let key in ref_json){
-            let val = ref_json[key]
-            if(upd_json.hasOwnProperty(key)){
-                continue
-            }
-            merged_json[key] = val;
-        }
-        return merged_json;
       }
     }
   }

@@ -1,3 +1,4 @@
+import easieAppContainer from './easie_app_container/easie_app_container.vue';
 import easieChart from './easie_chart/easie_chart.vue';
 import easieCheckbox from './easie_checkbox/easie_checkbox.vue';
 import easieDefaultMeta from './easie_default_meta/easie_default_meta.vue';
@@ -19,6 +20,8 @@ import tooltipLabel from './tooltip_label/tooltip_label.vue';
 
 
 export default Vue => {
+
+  Vue.component(easieAppContainer.name, easieAppContainer)
   Vue.component(easieChart.name, easieChart)
   Vue.component(easieCheckbox.name, easieCheckbox)
   Vue.component(easieDefaultMeta.name, easieDefaultMeta)

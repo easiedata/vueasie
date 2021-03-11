@@ -20,6 +20,7 @@
         @input="get_group_list_values"
         v-model="item_meta"
         :edit_mode="edit_mode"
+        :save_chart="save_item"
         >
       </chart-menu-tools>
     </div>
@@ -38,6 +39,7 @@
       'chart-menu-tools': chart_menu_tools
     },
     props: {
+      save_item: { default: true },
       edit_mode: { default: true },
       component_key: { default: '' },
       values_function: {
@@ -60,7 +62,7 @@
     data(){
       return {
         group_list: this.value.group_list,
-        item_meta: this.recursive_merge(this.value.item_meta, {...default_chart_meta}),
+        item_meta: this.$recursive_merge(this.value.item_meta, {...default_chart_meta}),
         group_list_values: {},
         echarts_json: {...default_echarts_json },
         new_complete_data: 0,
@@ -398,29 +400,6 @@
       },
       reload(){
         this.get_group_list_values()
-      },
-      recursive_merge(upd_json, ref_json){
-        let merged_json = {}
-        let object_constructor = ({}).constructor;
-        for (let key in upd_json){
-            let val = upd_json[key];
-            if(val!==null){
-                if(val.constructor == object_constructor && ref_json.hasOwnProperty(key)){
-                    val = this.recursive_merge(upd_json[key], ref_json[key]);
-                }
-            }
-
-            merged_json[key] = val;
-        }
-
-        for(let key in ref_json){
-            let val = ref_json[key]
-            if(upd_json.hasOwnProperty(key)){
-                continue
-            }
-            merged_json[key] = val;
-        }
-        return merged_json;
       }
     }
   }

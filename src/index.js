@@ -1,11 +1,21 @@
-import * as easieComponents from './components';
 import Vue from 'vue';
+
+// easie
+import easie_pnotify from './plugins/pnotify/index';
+import global_methods from './plugins/global_methods/index';
+import * as easieComponents from './components';
+
+// external stuff
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faAngleUp, faAngleDown, faChevronDown, faSave, faWrench, faChartLine, faChartBar, faChartPie, faComment, faSuperscript } from '@fortawesome/free-solid-svg-icons';
 import VTooltip from 'v-tooltip';
 
+
 Vue.use(VTooltip);
+
+Vue.use(easie_pnotify);
+Vue.use(global_methods);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -21,6 +31,7 @@ let easiedata = Vue => {
 
 export default easiedata;
 
+export { default as easieAppContainer } from './components/easie_app_container/easie_app_container.vue';
 export { default as easieChart } from './components/easie_chart/easie_chart.vue';
 export { default as easieCheckbox } from './components/easie_checkbox/easie_checkbox.vue';
 export { default as easieDefaultMeta } from './components/easie_default_meta/easie_default_meta.vue';

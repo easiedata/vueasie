@@ -79,6 +79,11 @@
         <tooltip-label class="tooltip-text-style" :key="data_op.name+1"  :value="data_op.value"></tooltip-label>
       </span>
     </div>
+    <div class="e-d-flex e-mt-4 e-px-4">
+      <button @click="test_pnotify" class="e-btn e-btn-light hover-bg-easie hover-text-white e-w-50">
+        Testar notify
+      </button>
+    </div>
   </div>
 </template>
 
@@ -121,6 +126,11 @@ export default {
       show_modal: false,
       data_op: { name: 'data 1', value: 'ahjsdhgsajghajdsghjasdgjhasdg'}
     };
+  },
+  methods:{
+    test_pnotify(){
+      this.$notify({text: 'Configuração Aplicada', type: 'success'})
+    }
   }
 }
 </script>

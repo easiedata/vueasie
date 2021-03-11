@@ -18,14 +18,14 @@
             </button>
           </div>
         </div>
-        <div class="e-d-flex e-flex-column">
+        <div class="e-d-flex e-flex-column e-align-items-center">
           <label class="e-pb-2" style="align-self: center;"> Ferramentas:</label>
           <div class="e-d-flex">
             <button @click="disp_ref.easie_tools_modal=true;" class="e-btn e-btn-outline-secondary">
               <font-awesome-icon icon="wrench"
               ></font-awesome-icon>
             </button>
-            <button  @click="$emit('save_chart')" class="e-ml-2 e-btn e-btn-outline-secondary \">
+            <button  v-show="save_chart" @click="$emit('save_chart')" class="e-ml-2 e-btn e-btn-outline-secondary \">
               <font-awesome-icon icon="save"
               ></font-awesome-icon>
             </button>
@@ -53,6 +53,7 @@
         'easie-item-tools': easieItemTools
       },
       props: {
+        save_chart: { default: true },
         edit_mode: { default: true },
         value:{required:true}
       },
