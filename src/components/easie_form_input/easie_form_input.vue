@@ -82,8 +82,8 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
+<style lang="scss">
+  @import "../../assets/scss/variables.scss";
    .easie-form-input-wrapper{
     cursor:pointer;
     position:relative;

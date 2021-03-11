@@ -135,8 +135,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+  @import "../src/assets/scss/styles.scss";
   .easiedata-group-el {
     /*border: 1px solid #ddd;*/
     white-space: nowrap;

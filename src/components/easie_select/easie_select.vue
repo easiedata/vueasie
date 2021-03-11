@@ -87,9 +87,6 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
-</style>
 
 <style lang="scss">
   @import "node_modules/vue-select/src/scss/vue-select.scss";

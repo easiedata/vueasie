@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isActive">
+  <div  v-show="isActive">
     <slot></slot>
   </div>
 </template>
@@ -21,7 +21,3 @@
       }
     };
 </script>
-
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
-</style>
