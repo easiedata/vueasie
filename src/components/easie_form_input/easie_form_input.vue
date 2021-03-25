@@ -87,7 +87,7 @@
    .easie-form-input-wrapper{
     cursor:pointer;
     position:relative;
-    height:41px;
+    height:34px;
     border: 1px solid rgba(60, 60, 60, 0.26);
     border-radius: 4px;
   }

@@ -23,7 +23,7 @@
     },
     methods:{
       on_input(e){
-        this.$emit('input',e.target.checked)
+        this.$emit('input', e.target.checked)
       }
     }
   }
