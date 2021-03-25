@@ -136,13 +136,9 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../src/assets/scss/styles.scss";
   .easiedata-group-el {
     /*border: 1px solid #ddd;*/
     white-space: nowrap;
     line-height:1.7;
   }
-  // .tooltip-text-style {
-  //   color:blue;
-  // }
 </style>

@@ -800,6 +800,12 @@ a.e-text-secondary:hover {
 .hover-text-easie:hover {
     color: $primary !important;
 }
+.hover-text-danger{
+    cursor:pointer;
+}
+.hover-text-danger:hover{
+    color: #dc3545 !important;
+}
 .hover-text-white {
     cursor:pointer !important;
 }

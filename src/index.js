@@ -8,7 +8,10 @@ import * as easieComponents from './components';
 // external stuff
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faAngleUp, faAngleDown, faChevronDown, faSave, faWrench, faChartLine, faChartBar, faChartPie, faComment, faSuperscript } from '@fortawesome/free-solid-svg-icons';
+import { faAngleUp, faAngleDown, faChevronDown, faSave, faWrench, faChartLine, faChartBar,
+    faChartPie, faComment, faSuperscript, faDatabase, faEdit, faTrash, faAngleDoubleLeft,
+    faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons';
+
 import VTooltip from 'v-tooltip';
 
 
@@ -19,7 +22,8 @@ Vue.use(global_methods);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-library.add(faAngleDown, faAngleUp, faChevronDown, faSave, faWrench, faChartLine, faChartBar, faChartPie, faComment, faSuperscript);
+library.add(faAngleDown, faAngleUp, faChevronDown, faSave, faWrench, faChartLine, faChartBar, faChartPie, faComment,
+    faSuperscript, faDatabase, faEdit, faTrash, faAngleDoubleLeft, faAngleDoubleRight);
 
 let easiedata = Vue => {
     Object.values(easieComponents).forEach((easieComponent) => {
@@ -49,5 +53,6 @@ export { default as easieSwitch } from './components/easie_switch/easie_switch.v
 export { default as easieTab } from './components/easie_tabs/easie_tab.vue';
 export { default as easieTopTabs } from './components/easie_tabs/easie_top_tabs.vue';
 export { default as easieTextarea } from './components/easie_textarea/easie_textarea.vue';
+export { default as itemDataStructure } from './components/item_data_structure/item_data_structure.vue';
 export { default as tooltipLabel } from './components/tooltip_label/tooltip_label.vue';
 
