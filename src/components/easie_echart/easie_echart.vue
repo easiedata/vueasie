@@ -41,7 +41,6 @@
         }
       });
 
-
       $(window).on('resize', function() {
         v_self.myChart.resize();
       });

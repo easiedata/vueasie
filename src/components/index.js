@@ -16,6 +16,7 @@ import easieSwitch from './easie_switch/easie_switch.vue';
 import easieTab from './easie_tabs/easie_tab.vue';
 import easieTopTabs from './easie_tabs/easie_top_tabs.vue';
 import easieTextarea from './easie_textarea/easie_textarea.vue';
+import itemDataStructure from './item_data_structure/item_data_structure.vue';
 import tooltipLabel from './tooltip_label/tooltip_label.vue';
 
 
@@ -39,6 +40,7 @@ export default Vue => {
   Vue.component(easieTab.name, easieTab)
   Vue.component(easieTopTabs.name, easieTopTabs)
   Vue.component(easieTextarea.name, easieTextarea)
+  Vue.component(itemDataStructure.name, itemDataStructure)
   Vue.component(tooltipLabel.name, tooltipLabel)
 }
 
