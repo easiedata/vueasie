@@ -17,7 +17,7 @@
       <span class="current-color" :style="'border:2px solid #ddd; background-color:' + value"></span>
       </span>-->
     </div>
-    <sketch-picker class="sketch-picker-position" v-if="display_picker" v-model="sketch_value" :presetColors="pallete" ></sketch-picker>
+    <sketch-picker class="easie-sketch-picker-position" v-if="display_picker" v-model="sketch_value" :presetColors="pallete" ></sketch-picker>
   </div>
 </template>
 
@@ -26,7 +26,7 @@
     import ClickOutside from 'vue-click-outside';
 
     export default {
-      name: "easieSketchColor",
+      name: "easie-sketch-color",
       components: {
         "sketch-picker": Sketch
       },
@@ -89,12 +89,10 @@
     };
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
-
-  .sketch-picker-position{
+<style lang="scss">
+  .easie-sketch-picker-position{
     position: absolute;
-    z-index: 5;
+    z-index: 1355;
   }
 
   .easie-color-picker {

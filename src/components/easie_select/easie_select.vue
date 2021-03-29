@@ -32,7 +32,7 @@
   import vSelect from 'vue-select';
 
   export default {
-    name: 'easieSelect',
+    name: 'easie-select',
     components:{
       vSelect
     },
@@ -87,9 +87,6 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
-</style>
 
 <style lang="scss">
   @import "node_modules/vue-select/src/scss/vue-select.scss";
@@ -97,7 +94,6 @@
 
   .easie-select {
     display: flex;
-    margin-top:7px;
     flex-direction: column;
     position: relative;
     align-items: flex-start;

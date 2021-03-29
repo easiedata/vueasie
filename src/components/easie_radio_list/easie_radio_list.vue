@@ -19,7 +19,7 @@
   import easie_radio from '../easie_radio/easie_radio.vue';
 
   export default {
-    name: 'easieRadioList',
+    name: 'easie-radio-list',
     components: {
       'easie-radio': easie_radio
     },
@@ -43,8 +43,3 @@
     }
   }
 </script>
-<style lang="scss" scoped>
-
-  @import "../../assets/scss/styles.scss";
-
-</style>

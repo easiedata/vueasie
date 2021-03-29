@@ -1,5 +1,5 @@
 <template>
-  <div class="register-form-group-textarea">
+  <div class="e-register-form-group-textarea">
     <span :class="c_class" class="input-wrapper e-d-flex e-align-items-center ">
       <template v-if="icon!=''">
         <i  class="e-mx-2" :class="icon"></i>
@@ -23,7 +23,7 @@
 
 <script>
     export default {
-      name: 'easieTextarea',
+      name: 'easie-textarea',
       props:{
         value: {required:true},
         icon: {default:''},
@@ -62,30 +62,30 @@
     }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
-
-  .register-form-group-textarea .input-wrapper {
+<style lang="scss">
+  @import "../../assets/scss/variables.scss";
+  
+  .e-register-form-group-textarea .input-wrapper {
     border: 1px solid lightgray;
     color: lightgray;
   }
 
-  .register-form-group-textarea .focus {
+  .e-register-form-group-textarea .focus {
       border: 1px solid $primary;
       color: $primary;
   }
+  .e-register-form-group-textarea .focus *{
+    color: $primary;
+  }
 
-  .register-form-group-textarea .error {
+  .e-register-form-group-textarea .e-error {
       border: 1px solid red;
       color: red;
   }
 
-  .register-form-group-textarea .input-wrapper * {
+  .e-register-form-group-textarea .input-wrapper * {
       border: none;
   }
 
-  .error {
-    color:red;
-  }
 
 </style>

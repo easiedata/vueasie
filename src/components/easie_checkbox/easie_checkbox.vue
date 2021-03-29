@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: 'easie_checkbox',
+    name: 'easie-checkbox',
     props:{
       value:{required:true},
       opt:{required:true}
@@ -47,8 +47,8 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
+<style lang="scss" >
+  @import "../../assets/scss/variables.scss";
 
   .easie-checkbox-label {
     position: relative;

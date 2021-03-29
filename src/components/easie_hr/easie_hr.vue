@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    name: 'easieHr',
+    name: 'easie-hr',
     props:{
       value:{required:true},
       hr_label:{default:['']}
@@ -33,9 +33,8 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
-
+<style lang="scss">
+  @import "../../assets/scss/variables.scss";
   .easie-hr {
       cursor:pointer;
       font-size: 16px;

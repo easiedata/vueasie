@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'easieRadio',
+    name: 'easie-radio',
     props:{
       value: {required:true},
       name: {required:true},
@@ -21,8 +21,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
+<style lang="scss">
   .easie-radio-input input{
     margin: 0;
     padding: 0;

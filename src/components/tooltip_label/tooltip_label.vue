@@ -11,7 +11,7 @@
       content:value,
       show: show_tooltip,
       trigger: 'manual'
-    }"   class="overflow_class" :class="{'on-overflow':is_overflowing}">
+    }"   class="easie-overflow-class" :class="{'on-overflow':is_overflowing}">
     <slot></slot>
     {{ value }}
   </label>
@@ -21,7 +21,7 @@
   import ClickOutside from 'vue-click-outside'
 
   export default {
-    name: 'tooltipLabel',
+    name: 'tooltip-label',
     directives: {
       ClickOutside
     },
@@ -91,33 +91,23 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
-</style>
-
 <style lang="scss">
   @import '../../assets/css/easie_styles/tooltip_over.scss';
   @import "../../assets/scss/variables.scss";
 
-  .overflow_class {
-    all: inherit;
+  .easie-overflow-class {
     white-space: nowrap;
     align-self:center;
     text-overflow: ellipsis;
     overflow: hidden;
-
   }
 
-  .overflow_class.on-overflow {
+  .easie-overflow-class.on-overflow {
     cursor:pointer !important;
   }
-  .overflow_class.on-overflow:hover {
+  .easie-overflow-class.on-overflow:hover {
     color:$primary;
   }
 
-  .label_popover_div{
-    width:auto !important;
-    padding:6px !important;
-  }
 
 </style>

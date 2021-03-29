@@ -1,6 +1,6 @@
 {
   "name": "vueasie",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "main": "dist/easiedata.umd.js",
   "module": "dist/easiedata.esm.js",
   "unpkg": "dist/easiedata.min.js",
@@ -15,42 +15,40 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "bootstrap": "^3.4.1",
     "core-js": "^3.6.5",
+    "echarts": "^5.0.2",
     "inputmask": "^5.0.5",
+    "node-sass": "^5.0.0",
     "v-tooltip": "^2.0.3",
     "vue": "^2.6.11",
     "vue-click-outside": "^1.1.0",
     "vue-color": "^2.8.1",
-    "vue-select": "^3.11.2"
+    "vue-select": "^3.11.2",
+    "vuedraggable": "^2.24.3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "babel-preset-env": "^1.7.0",
-    "cross-env": "^7.0.3",
-    "css-loader": "^5.0.1",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "file-loader": "^6.2.0",
-    "node-sass": "^5.0.0",
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/mobile": "^5.2.0",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-plugin-router": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "babel-eslint": "^10.0.3",
+    "css-loader": "^5.1.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "pnotify": "^5.2.0",
     "rollup": "^1.17.0",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-vue": "^5.0.1",
-    "sass": "^1.32.6",
-    "sass-loader": "^10.1.1",
-    "vue": "^2.6.10",
-    "vue-loader": "^15.9.6",
-    "vue-template-compiler": "^2.6.12",
-    "webpack": "^4.46.0",
-    "webpack-dev-server": "^3.11.2"
+    "sass": "^1.32.4",
+    "sass-loader": "^9.0.3",
+    "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
     "root": true,
@@ -61,20 +59,19 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
     "rules": {
       "no-unused-vars": "off",
       "no-undef": "off",
       "no-console": "off",
       "no-unused-labels": "off",
       "no-useless-escape": "off"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
     }
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions",
-    "not dead"
+    "last 2 versions"
   ]
 }

@@ -13,6 +13,8 @@ export default {
       css: true, // Dinamicamente injeta CSS como uma tag <style>
       compileTemplate: true, // Explicitamente converte template para função render
     }),
-    buble(), // Transpila para ES5
+    buble({
+      objectAssign: 'Object.assign'
+    }), // Transpila para ES5
   ],
 };

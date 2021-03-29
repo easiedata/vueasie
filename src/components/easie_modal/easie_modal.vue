@@ -21,7 +21,7 @@
 
 <script>
   export default {
-    name: "easieModal",
+    name: "easie-modal",
     props: {
       modal_super:{default:false},
       modal_disp_ref: { default: "" },
@@ -48,8 +48,8 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import "../../assets/scss/styles.scss";
+<style lang="scss">
+  @import "../../assets/scss/variables.scss";
 
   @media only screen and (max-width: 600px) {
     .easie-modal {
