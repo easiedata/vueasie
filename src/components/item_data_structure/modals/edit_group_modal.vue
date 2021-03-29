@@ -35,7 +35,7 @@
             </component>
           </easie-tab>
         </template>
-        <easie-tab key="events" name="Ao Clicar" >
+        <easie-tab key="events" name="Ao Clicar" v-if="show_events_tab">
           <slot name="group_events"></slot>
         </easie-tab>
       </easie-top-tabs>
@@ -61,7 +61,8 @@
     },
     props:{
       mode:{required:true},
-      initial_group:{required:true}
+      initial_group:{required:true},
+      show_events_tab:{default:false}
     },
     data(){
       return {

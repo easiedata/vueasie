@@ -98,6 +98,7 @@
         :initial_group="sel_group"
         :initial_data="initial_data"
         :group_list="group_list"
+        :show_events_tab="show_events_modal"
         @close="show_modal.edit_data=false"
         @new_item_meta="new_item_meta">
           <template slot="data_structure">
@@ -111,6 +112,7 @@
         v-if="show_modal.edit_group"
         :mode="mode"
         :initial_group="initial_group"
+        :show_events_tab="show_events_modal"
         @new_item_meta="new_group_item_meta"
         @close="show_modal.edit_group=false">
           <template slot="group_structure">
@@ -145,7 +147,8 @@
       'draggable': draggable,
     },
     props:{
-      mode:{required:true}
+      mode:{required:true},
+      show_events_modal:{default:false}
     },
     data(){
       return {

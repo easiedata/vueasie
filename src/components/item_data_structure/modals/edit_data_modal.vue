@@ -24,7 +24,7 @@
             </easie-default-meta>
           </easie-tab>
         </template>
-        <easie-tab key="events" name="Ao Clicar">
+        <easie-tab key="events" name="Ao Clicar" v-if="show_events_tab">
           <slot name="data_events"></slot>
         </easie-tab>
       </easie-top-tabs>
@@ -53,7 +53,8 @@
       mode:{required:true},
       initial_data:{required: true},
       initial_group:{required:true},
-      group_list:{required:true}
+      group_list:{required:true},
+      show_events_tab:{default:false}
     },
     data(){
       return{
