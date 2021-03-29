@@ -1,6 +1,6 @@
 {
   "name": "vueasie",
-  "version": "1.0.8",
+  "version": "1.0.2",
   "main": "dist/easiedata.umd.js",
   "module": "dist/easiedata.esm.js",
   "unpkg": "dist/easiedata.min.js",
