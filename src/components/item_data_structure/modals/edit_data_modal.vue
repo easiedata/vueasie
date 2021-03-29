@@ -36,7 +36,6 @@
   import easieModal from '../../easie_modal/easie_modal.vue';
   import easieTab from '../../easie_tabs/easie_tab.vue';
   import easieTopTabs from '../../easie_tabs/easie_top_tabs.vue';
-  import easieSwitch from '../../easie_switch/easie_switch.vue';
   import easieDefaultMeta from '../../easie_default_meta/easie_default_meta.vue';
   import { meta_settings } from '../../easie_default_meta/default_meta.js';
 
@@ -46,7 +45,6 @@
       'easie-modal': easieModal,
       'easie-tab':easieTab,
       'easie-top-tabs':easieTopTabs,
-      'easie-switch': easieSwitch,
       'easie-default-meta':easieDefaultMeta
     },
     props:{
