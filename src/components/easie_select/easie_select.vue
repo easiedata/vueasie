@@ -94,7 +94,6 @@
 
   .easie-select {
     display: flex;
-    margin-top:7px;
     flex-direction: column;
     position: relative;
     align-items: flex-start;

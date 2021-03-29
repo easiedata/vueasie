@@ -74,6 +74,9 @@
       border: 1px solid $primary;
       color: $primary;
   }
+  .e-register-form-group-textarea .focus *{
+    color: $primary;
+  }
 
   .e-register-form-group-textarea .e-error {
       border: 1px solid red;

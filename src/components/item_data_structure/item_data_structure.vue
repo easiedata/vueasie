@@ -137,7 +137,7 @@
   import editStructureModal from './modals/edit_structure_modal.vue';
 
   export default {
-    name: 'item_data_structure',
+    name: 'item-data-structure',
     components: {
       'edit-data-modal': editDataModal,
       'edit-group-modal': editGroupModal,
