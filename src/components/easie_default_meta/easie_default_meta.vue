@@ -54,25 +54,26 @@
 </template>
 
 <script>
-  import easieTextarea from '../easie_textarea/easie_textarea.vue';
-  import easieSketchColor from '../easie_sketch_color/easie_sketch_color.vue';
-  import easieFormInput from '../easie_form_input/easie_form_input.vue';
-  import easieRadioList from '../easie_radio_list/easie_radio_list.vue';
-  import easieSwitch from '../easie_switch/easie_switch.vue';
-  import easieSelect from '../easie_select/easie_select.vue';
-  import easieHr from '../easie_hr/easie_hr.vue';
+  //TODO CHECK IF COMPONENTS ALREADY IMPORTED
+  // import easieTextarea from '../easie_textarea/easie_textarea.vue';
+  // import easieSketchColor from '../easie_sketch_color/easie_sketch_color.vue';
+  // import easieFormInput from '../easie_form_input/easie_form_input.vue';
+  // import easieRadioList from '../easie_radio_list/easie_radio_list.vue';
+  // import easieSwitch from '../easie_switch/easie_switch.vue';
+  // import easieSelect from '../easie_select/easie_select.vue';
+  // import easieHr from '../easie_hr/easie_hr.vue';
 
   export default {
     name: 'easie-default-meta',
-    components: {
-      'easie-textarea': easieTextarea,
-      'easie-sketch-color': easieSketchColor,
-      'easie-form-input':easieFormInput,
-      'easie-radio-list':easieRadioList,
-      'easie-switch': easieSwitch,
-      'easie-select': easieSelect,
-      'easie-hr': easieHr
-    },
+    // components: {
+    //   'easie-textarea': easieTextarea,
+    //   'easie-sketch-color': easieSketchColor,
+    //   'easie-form-input':easieFormInput,
+    //   'easie-radio-list':easieRadioList,
+    //   'easie-switch': easieSwitch,
+    //   'easie-select': easieSelect,
+    //   'easie-hr': easieHr
+    // },
     props:{
       meta_key:{required:true},
       item_meta:{required:true},
@@ -83,6 +84,7 @@
     },
     data(){
       return {
+        valid_meta: true,
         show_advanced_settings:false,
         apply_label: 'Aplicar rótulos para:',
         apply: 'self',
@@ -126,9 +128,7 @@
         let c_data_v = {}
         for(let c in this.c_data){
           let key_list = this.c_data[c].key_list;
-          let val = this.$get_json_key(
-            key_list, this.item_meta, this.c_data[c].v
-          )
+          let val = this.c_data[c].get_value_back(this.$get_json_key(key_list, this.item_meta, this.c_data[c].v));
           c_data_v[c] = val;
         }
         return c_data_v;

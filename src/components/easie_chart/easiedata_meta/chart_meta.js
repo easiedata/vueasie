@@ -26,6 +26,7 @@ export const chart_c_data = {
     component: 'easie-form-input',
     label: 'Texto',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['chart_title'],
     bind: {}
   },
@@ -34,6 +35,7 @@ export const chart_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['title_style','textStyle', 'color'],
     bind: {}
   },
@@ -41,7 +43,8 @@ export const chart_c_data = {
     v: '18',
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['title_style', 'textStyle', 'fontSize'],
     bind: {type:'number', style:'max-width:150px'}
   },
@@ -50,6 +53,7 @@ export const chart_c_data = {
     component: 'easie-form-input',
     label: 'Texto',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['chart_subtitle'],
     bind: {}
   },
@@ -58,6 +62,7 @@ export const chart_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['title_style', 'subtextStyle', 'color'],
     bind: {}
   },
@@ -65,7 +70,8 @@ export const chart_c_data = {
     v: '12',
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['title_style', 'subtextStyle', 'fontSize'],
     bind: {type:'number', style:'max-width:150px'}
   },
@@ -74,6 +80,7 @@ export const chart_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['legend_style', 'textStyle', 'color'],
     bind: {}
   },
@@ -81,7 +88,8 @@ export const chart_c_data = {
     v: '12',
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['legend_style', 'textStyle', 'fontSize'],
     bind: {type:'number', style:'max-width:150px'}
   },
@@ -89,7 +97,8 @@ export const chart_c_data = {
     v: '14',
     component: 'easie-form-input',
     label: 'Altura',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['legend_style', 'itemHeight'],
     bind: {type:'number'}
   },
@@ -97,7 +106,8 @@ export const chart_c_data = {
     v: '25',
     component: 'easie-form-input',
     label: 'Largura',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['legend_style', 'itemWidth'],
     bind: {type:'number'}
   },
@@ -105,7 +115,8 @@ export const chart_c_data = {
     v: '10',
     component: 'easie-form-input',
     label: 'Distância',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['legend_style', 'itemGap'],
     bind: {type:'number'}
   },
@@ -114,6 +125,7 @@ export const chart_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style','axisLine', 'lineStyle', 'color'],
     bind:{
     }
@@ -122,7 +134,8 @@ export const chart_c_data = {
     v: 'solid',
     component: 'easie-form-input',
     label: 'Tipo',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style','axisLine', 'lineStyle', 'type'],
     bind:{}
   },
@@ -131,6 +144,7 @@ export const chart_c_data = {
     component: 'easie-form-input',
     label: 'Largura',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style','axisLine', 'lineStyle', 'width'],
     bind: {type:'number'}
   },
@@ -139,6 +153,7 @@ export const chart_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style','axisTick', 'lineStyle', 'color'],
     bind: {}
   },
@@ -147,6 +162,7 @@ export const chart_c_data = {
     component: 'easie-form-input',
     label: 'Largura',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style','axisTick', 'lineStyle', 'width'],
     bind: {type:'number'}
   },
@@ -155,6 +171,7 @@ export const chart_c_data = {
     component: 'easie-form-input',
     label: 'Comprimento',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style','axisTick', 'width'],
     bind: {type:'number'}
   },
@@ -163,6 +180,7 @@ export const chart_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style','axisLabel', 'color'],
     bind: {}
   },
@@ -170,7 +188,8 @@ export const chart_c_data = {
     v: 'sans-serif',
     component: 'easie-form-input',
     label: 'Fonte',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style', 'axisLabel', 'fontFamily'],
     bind: {}
   },
@@ -178,7 +197,8 @@ export const chart_c_data = {
     v: '14',
     component: 'easie-form-input',
     label: 'Tamanho',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style', 'axisLabel', 'fontSize'],
     bind: {type:'number', style:'max-width:150px'}
   },
@@ -187,6 +207,7 @@ export const chart_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style','splitLine', 'lineStyle', 'color'],
     bind: {}
   },
@@ -194,7 +215,8 @@ export const chart_c_data = {
     v: 'solid',
     component: 'easie-form-input',
     label: 'Tipo',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style','splitLine', 'lineStyle', 'type'],
     bind: {}
   },
@@ -203,6 +225,7 @@ export const chart_c_data = {
     component: 'easie-form-input',
     label: 'Largura',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_axis_style','splitLine', 'lineStyle', 'width'],
     bind: {type:'number'}
   },
@@ -211,6 +234,7 @@ export const chart_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['category_axis_style','axisLine', 'lineStyle', 'color'],
     bind: {}
   },
@@ -218,7 +242,8 @@ export const chart_c_data = {
     v: 'solid',
     component: 'easie-form-input',
     label: 'Tipo',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['category_axis_style','axisLine', 'lineStyle', 'type'],
     bind: {}
   },
@@ -227,6 +252,7 @@ export const chart_c_data = {
     component: 'easie-form-input',
     label: 'Largura',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['category_axis_style','axisLine', 'lineStyle', 'width'],
     bind: {type:'number'}
   },
@@ -235,6 +261,7 @@ export const chart_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['category_axis_style','axisTick', 'lineStyle', 'color'],
     bind: {}
   },
@@ -243,6 +270,7 @@ export const chart_c_data = {
     component: 'easie-form-input',
     label: 'Largura',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['category_axis_style','axisTick', 'lineStyle', 'width'],
     bind: {type:'number'}
   },
@@ -251,6 +279,7 @@ export const chart_c_data = {
     component: 'easie-form-input',
     label: 'Comprimento',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['category_axis_style','axisTick', 'width'],
     bind: {type:'number'}
   },
@@ -259,6 +288,7 @@ export const chart_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['category_axis_style','axisLabel', 'color'],
     bind: {}
   },
@@ -266,7 +296,8 @@ export const chart_c_data = {
     v: 'sans-serif',
     component: 'easie-form-input',
     label: 'Fonte',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['category_axis_style', 'axisLabel', 'fontFamily'],
     bind: {}
   },
@@ -274,56 +305,64 @@ export const chart_c_data = {
     v: '14',
     component: 'easie-form-input',
     label: 'Tamanho',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['category_axis_style', 'axisLabel', 'fontSize'],
     bind: {type:'number', style:'max-width:150px'}
   },
   show_tool_tip: {
     v: true,
     component: 'easie-switch',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['t_tooltip', 'show'],
     bind: { s_label: 'Mostrar informações'}
   },
   show_axis_pointer: {
     v: true,
     component: 'easie-switch',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['t_tooltip', 'axis_pointer'],
     bind: { s_label: 'Destacar valor no eixo'}
   },
   stack_variation: {
     v: false,
     component: 'easie-switch',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['stack'],
     bind: { s_label: 'Empilhar'}
   },
   inverted_axis_variation: {
     v: false,
     component: 'easie-switch',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['inverted_axis'],
     bind: { s_label: 'Inverter Eixos'}
   },
   show_zeros: {
     v: true,
     component: 'easie-switch',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_configs', 'show_zeros'],
     bind: { s_label: 'Mostrar zeros'}
   },
   show_null: {
     v: true,
     component: 'easie-switch',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_configs', 'show_null'],
     bind: { s_label: 'Mostrar nulos'}
   },
   null_to_zero: {
     v: true,
     component: 'easie-switch',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_configs', 'null_to_zero'],
     bind: { s_label: 'Transformar nulos em zeros'}
   }

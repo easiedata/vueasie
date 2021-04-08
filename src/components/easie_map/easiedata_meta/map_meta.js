@@ -13,6 +13,7 @@ export const map_c_data = {
     component: 'easie-form-input',
     label: 'Texto',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['title', 'text'],
     bind: {}
   },
@@ -21,6 +22,7 @@ export const map_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['title','textStyle', 'color'],
     bind: {}
   },
@@ -28,7 +30,8 @@ export const map_c_data = {
     v: '18',
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['title', 'textStyle', 'fontSize'],
     bind: {type:'number', style:'max-width:150px'}
   },
@@ -37,6 +40,7 @@ export const map_c_data = {
     component: 'easie-form-input',
     label: 'Texto',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['title', 'subtext'],
     bind: {}
   },
@@ -45,6 +49,7 @@ export const map_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['title', 'subtextStyle', 'color'],
     bind: {}
   },
@@ -52,7 +57,8 @@ export const map_c_data = {
     v: '12',
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['title', 'subtextStyle', 'fontSize'],
     bind: {type:'number', style:'max-width:150px'}
   },
@@ -60,28 +66,32 @@ export const map_c_data = {
     v: '24',
     component: 'easie-form-input',
     label: 'Largura',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['visualMap', 'itemWidth'],
     bind: {type:'number'}
   },
   show_zeros: {
     v: true,
     component: 'easie-switch',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_configs', 'show_zeros'],
     bind: { s_label: 'Mostrar zeros'}
   },
   show_null: {
     v: true,
     component: 'easie-switch',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_configs', 'show_null'],
     bind: { s_label: 'Mostrar nulos'}
   },
   null_to_zero: {
     v: true,
     component: 'easie-switch',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['value_configs', 'null_to_zero'],
     bind: { s_label: 'Transformar nulos em zeros'}
   }

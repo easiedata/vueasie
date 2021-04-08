@@ -7,18 +7,23 @@
       class="e-bg-white e-w-100"
       ref="v_select"
       @input="$emit('input', sel_val)"
+      @search="onSearch"
+
       v-model="sel_val"
-      :options="options"
-      :clearable="false"
+      :options="sel_options"
       :append-to-body="true"
+
+      :clearable="clearable"
       :searchable="searchable"
+      :filterable="filterable"
+      :multiple="multiple"
+
       :label="label"
       :reduce="reduce"
       >
       <template #open-indicator="{ attributes }">
         <span class="easie-select-open-icon" v-bind="attributes">
-          <font-awesome-icon icon="chevron-down"
-          ></font-awesome-icon>
+          <font-awesome-icon icon="chevron-down"></font-awesome-icon>
         </span>
       </template>
       <template slot="no-options">
@@ -41,7 +46,12 @@
       options:{required:false},
       placeholder:{required:false},
       icon:{required:false},
+      multiple:{default: false},
+      clearable:{default:false},
       searchable:{default: false},
+      filterable:{default: true},
+      search_options:{default: false},
+
       label:{default: 'label'},
       reduce: {
         type: Function,
@@ -50,6 +60,7 @@
     },
     data(){
       return {
+        sel_options: this.options,
         active:false,
         sel_val: this.value,
       }
@@ -65,6 +76,16 @@
         return false;
       }
     },
+    methods:{
+      onSearch(search, loading){
+        if(search.length && this.$is_function(this.search_options)){
+          if (this.timeout){ clearTimeout(this.timeout)}
+          this.timeout = setTimeout(() => {
+            this.search_options(this, search, loading);
+          }, 400);
+        }
+      }
+    },
     mounted(){
       this.$el.querySelector('input.vs__search').addEventListener('focus', () => {
         this.active = true;
@@ -78,6 +99,11 @@
         icon_el.setAttribute('class', this.icon + ' easie-select-icon mx-2');
         this.$refs.v_select.$refs.selectedOptions.prepend(icon_el);
       }
+
+      if(this.$is_function(this.search_options)){
+        this.search_options(this, '', ()=> {})
+      }
+      
     },
     watch:{
       value(){

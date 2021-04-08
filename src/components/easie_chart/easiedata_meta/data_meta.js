@@ -3,13 +3,13 @@ export const chart_data_c_order = {
   components: ['label_emphasis_show', 'label_emphasis_font_size'], show: true}]
 }
 
-
 export const chart_data_c_data = {
   label_normal_show:{
     v:false,
     component:'easie-switch',
     label: '',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['label','normal', 'show'],
     bind:{
       s_label: 'Mostrar Rótulo',
@@ -20,7 +20,8 @@ export const chart_data_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
-    key_list: ['label','normal', 'textStyle','color'],
+    get_value_back: (v) => v,
+    key_list: ['label', 'normal', 'textStyle', 'color'],
     bind:{
     }
   },
@@ -28,7 +29,8 @@ export const chart_data_c_data = {
     v: '14',
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['label','normal', 'textStyle','fontSize'],
     bind:{type:'number', style:'max-width:150px'}
   },
@@ -37,6 +39,7 @@ export const chart_data_c_data = {
     component: 'easie-select',
     label: 'Posição',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['label','normal','position'],
     bind:{ options:[
       {value:'top', label: 'Em cima'},
@@ -68,6 +71,7 @@ export const chart_data_c_data = {
                 </ul>`
               },
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['label','normal','formatter'],
     bind:{}
   },
@@ -76,6 +80,7 @@ export const chart_data_c_data = {
     component:'easie-switch',
     label: '',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['label','emphasis', 'show'],
     bind:{ s_label: 'Ênfase Rótulo'}
   },
@@ -83,7 +88,8 @@ export const chart_data_c_data = {
     v: '24',
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
-    get_value: (v) => v ,
+    get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['label', 'emphasis', 'textStyle','fontSize'],
     bind:{type:'number', style:'max-width:150px'}
   }
