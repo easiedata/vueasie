@@ -12,6 +12,9 @@
         <easie-tab v-if="group_list.length" name="Grupos">
           <slot name="group_order"></slot>
         </easie-tab>
+        <easie-tab v-if="group_list.length" name="Avançado">
+          <slot name="advanced"></slot>
+        </easie-tab>
       </easie-top-tabs>
     </div>
   </easie-modal>

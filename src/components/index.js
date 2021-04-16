@@ -1,3 +1,4 @@
+import easieAce from './easie_ace/easie_ace.vue';
 import easieAppContainer from './easie_app_container/easie_app_container.vue';
 
 import easieCheckbox from './easie_checkbox/easie_checkbox.vue';
@@ -27,6 +28,7 @@ import easieIndicator from './easieboard_items/easie_indicator/easie_indicator.v
 
 export default Vue => {
 
+  Vue.component(easieAce.name, easieAce)
   Vue.component(easieAppContainer.name, easieAppContainer)
   
   Vue.component(easieCheckbox.name, easieCheckbox)

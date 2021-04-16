@@ -84,6 +84,15 @@
         Testar notify
       </button>
     </div>
+    <div class="e-mt-4 e-px-4">
+      <label class="e-mb-2"> Teste Editor Easie</label>
+        <easie-ace v-model="code_test"
+          @init="init"
+          lang="python"
+          class="easie-editor-wrapper"
+          height="300px"
+          width="1200px"/>
+    </div>
   </div>
 </template>
 
@@ -124,21 +133,32 @@ export default {
       visibility: true,
       test_textarea: '',
       show_modal: false,
-      data_op: { name: 'data 1', value: 'ahjsdhgsajghajdsghjasdgjhasdg'}
+      data_op: { name: 'data 1', value: 'ahjsdhgsajghajdsghjasdgjhasdg'},
+      code_test: '#digite novo código aqui'
     };
   },
   methods:{
     test_pnotify(){
       this.$notify({text: 'Configuração Aplicada', type: 'success'})
+    },
+    init(editor) {
+      editor.renderer.setScrollMargin(3, 0);
+      editor.setOptions({
+        printMargin: true,
+        wrap: true,
+        scrollPastEnd: 0.5,
+      });
     }
   }
 }
 </script>
 
 <style lang="scss">
+  @import "../src/assets/scss/variables.scss";
   .easiedata-group-el {
     /*border: 1px solid #ddd;*/
     white-space: nowrap;
     line-height:1.7;
   }
+
 </style>
