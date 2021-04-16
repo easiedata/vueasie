@@ -25,11 +25,13 @@
       <easie-hr v-model="show_advanced_settings" hr_label="Configurações avançadas">
       </easie-hr>
       <div v-if="show_advanced_settings">
-        <div class="e-py-2">
+        <div class="e-py-2 e-mr-2">
           <label>JSON</label>
-          <div>
-            <easie-textarea @input="new_meta_string" v-model="item_meta_string"></easie-textarea>
-          </div>
+          <easie-ace v-model="item_meta_string"
+            @init="init_editor"
+            lang="json"
+            class="easie-editor-wrapper"
+            height="300px"/>
         </div>
       </div>
     </div>
@@ -54,6 +56,7 @@
 </template>
 
 <script>
+  import easieAce from '../easie_ace/easie_ace.vue'
   import easieTextarea from '../easie_textarea/easie_textarea.vue';
   import easieSketchColor from '../easie_sketch_color/easie_sketch_color.vue';
   import easieFormInput from '../easie_form_input/easie_form_input.vue';
@@ -65,6 +68,7 @@
   export default {
     name: 'easie-default-meta',
     components: {
+      'easie-ace': easieAce,
       'easie-textarea': easieTextarea,
       'easie-sketch-color': easieSketchColor,
       'easie-form-input':easieFormInput,
@@ -117,8 +121,8 @@
           ]
         },
         c_data_val: this.get_c_data_val(),
-        meta_val: JSON.parse(JSON.stringify(this.item_meta)),
-        item_meta_string: JSON.stringify(this.item_meta)
+        meta_val: JSON.parse(JSON.stringify(this.item_meta, null, '\t')),
+        item_meta_string: JSON.stringify(this.item_meta, null, '\t')
       }
     },
     methods:{
@@ -133,18 +137,9 @@
         }
         return c_data_v;
       },
-      new_meta_string(){
-        try{
-          this.meta_val = JSON.parse(this.item_meta_string);
-          this.valid_meta = true;
-        } catch(err){
-          this.valid_meta = false;
-        }
-      },
       new_meta(key_list, v){
         this.$recursive_set_key(this.meta_val,  key_list, v);
-        this.item_meta_string = JSON.stringify(this.meta_val);
-        this.new_meta_string()
+        this.item_meta_string = JSON.stringify(this.meta_val, null, '\t');
       },
       new_item_meta(){
         if(!this.valid_meta){
@@ -159,6 +154,24 @@
           apply: this.apply,
           key: this.meta_key
         })
+      },
+      init_editor(editor) {
+        editor.renderer.setScrollMargin(3, 0);
+        editor.setOptions({
+          printMargin: true,
+          wrap: true,
+          scrollPastEnd: 0.5,
+        });
+      }
+    },
+    watch:{
+      item_meta_string(){
+        try{
+          this.meta_val = JSON.parse(this.item_meta_string);
+          this.valid_meta = true;
+        } catch(err){
+          this.valid_meta = false;
+        }
       }
     }
   }

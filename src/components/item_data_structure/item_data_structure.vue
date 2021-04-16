@@ -90,6 +90,9 @@
           <template slot="group_order">
             <slot name="group_order"></slot>
           </template>
+          <template slot="advanced">
+            <slot name="advanced"></slot>
+          </template>
       </edit-structure-modal>
       <edit-data-modal
         v-if="show_modal.edit_data"
