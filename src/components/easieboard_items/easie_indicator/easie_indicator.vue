@@ -44,7 +44,7 @@
 
   import { default_group_meta, default_data_meta, default_item_meta } from './meta/meta'
   import indicator from './indicator.vue';
-  import easieItemTools from '../easie_item_tools/easie_item_tools.vue';
+  import easieItemTools from '../../easie_item_tools/easie_item_tools.vue';
 
   export default {
     name: 'easie-indicator',
@@ -90,6 +90,7 @@
       }
     },
     methods:{
+      resize(){},
       new_params(group_list=false, item_meta=false){
         this.mount_ind = false;
         if(group_list != false){

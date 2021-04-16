@@ -57,7 +57,8 @@
           item_ref: {
             'chart': 'do Gráfico',
             'map': 'do Mapa',
-            'indicator': 'do Indicador'
+            'indicator': 'do Indicador',
+            'slider': 'do Deslizador'
           }
         };
       },

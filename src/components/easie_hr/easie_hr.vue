@@ -44,10 +44,6 @@
       cursor:pointer;
   }
 
-  .easie-hr label {
-      font-weight:600;
-  }
-
   .easie-hr hr{
       border-top: 1px solid rgba(0,0,0,.1);
       cursor:pointer;

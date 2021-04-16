@@ -1,12 +1,12 @@
 <template>
-  <div ref="component_wrapper" style="width: 100%; height:100%; position:relative">
+  <div class="e-d-flex e-flex-column" ref="component_wrapper" style="width: 100%; height:100%; position:relative">
     <easie-echart
       v-if="reload_chart>0"
+      class="e-flex-grow-1"
       @clicked_series="easiedata_clicked"
       :key="reload_chart"
       :echarts_json="echarts_json"
       :upd_chart_size="upd_chart_size"
-      :height="chart_height"
       >
     </easie-echart>
     <div>
@@ -28,9 +28,9 @@
 </template>
 
 <script>
-  import easie_echart from '../easie_echart/easie_echart.vue';
+  import easie_echart from '../../easie_echart/easie_echart.vue';
   import chart_menu_tools from './chart_menu_tools.vue';
-  import { default_item_meta, default_chart_meta, default_echarts_json, default_toolbox, DEFAULT_DATA_COLORS } from './easiedata_meta/meta'
+  import { default_item_meta, default_chart_meta, default_echarts_json, default_toolbox, DEFAULT_DATA_COLORS } from './meta/meta'
 
   export default {
     name: 'easie-chart',
@@ -68,7 +68,6 @@
         new_complete_data: 0,
         reload_chart: 0,
         upd_chart_size: 0,
-        chart_height: '400px',
         easiedata_labels: {},
         easiedata_items: {},
         series_colors: {},
@@ -319,10 +318,7 @@
         let loading = this.$loading.show({
           container: this.$el,
         });
-        this.values_function(this, () => { loading.hide() }, () => {
-          this.update_meta();
-          this.$emit('upd_group_list', this.group_list);
-        });
+        this.values_function(this, () => { loading.hide() }, this.update_meta());
       },
       update_meta(){
         this.mount_item_configs()
@@ -387,15 +383,6 @@
         this.$emit('trigger_event', data);
       },
       resize(){
-        let edit_height = 0;
-        let c_height = this.$refs.component_wrapper.clientHeight;
-        if(this.edit_mode){
-          edit_height = 100;
-          if(c_height == 0){
-            c_height = 550;
-          }
-        }
-        this.chart_height = (c_height-20-edit_height) + 'px';
         this.upd_chart_size ++;
       },
       reload(){

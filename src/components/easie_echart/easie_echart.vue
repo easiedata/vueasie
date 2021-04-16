@@ -1,5 +1,5 @@
 <template>
-  <div ref="my_echart" :style="c_style"></div>
+  <div ref="my_echart" class="e-h-100 e-w-100"></div>
 </template>
 
 <script>
@@ -9,7 +9,6 @@
     props: {
       echarts_json: { required: true, type: Object },
       upd_chart_size: { default: 0 },
-      height: { default: '300px' },
       geo_json_map:{required:false}
     },
     data() {
@@ -40,22 +39,19 @@
           return;
         }
       });
-
-      $(window).on('resize', function() {
-        v_self.myChart.resize();
-      });
+      window.addEventListener('resize', this.resize);
     },
-    watch: {
-      upd_chart_size: function() {
-        this.myChart.resize();
-      },
-      height(){
+    beforeDestroy() {
+      window.removeEventListener('resize', this.resize);
+    },
+    methods:{
+      resize(){
         this.myChart.resize();
       }
     },
-    computed: {
-      c_style: function() {
-        return `height:${this.height}; width: 100%;`;
+    watch:{
+      upd_chart_size() {
+        this.resize()
       }
     }
   };

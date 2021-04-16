@@ -45,7 +45,7 @@
 </template>
 <script>
     // self
-    import  easieItemTools  from '../easie_item_tools/easie_item_tools.vue';
+    import  easieItemTools  from '../../easie_item_tools/easie_item_tools.vue';
 
     export default {
       name: 'chart_menu_tools',

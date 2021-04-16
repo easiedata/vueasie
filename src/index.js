@@ -27,8 +27,8 @@ library.add(faAngleDown, faAngleUp, faChevronDown, faSave, faWrench, faChartLine
 
 let easiedata = Vue => {
     Object.values(easieComponents).forEach((easieComponent) => {
-    Vue.use(easieComponent);
-  })
+        Vue.use(easieComponent);
+    })
 
 }
 
@@ -36,14 +36,13 @@ export default easiedata;
 
 export { default as easieAce } from './components/easie_ace/easie_ace.vue';
 export { default as easieAppContainer } from './components/easie_app_container/easie_app_container.vue';
-export { default as easieChart } from './components/easie_chart/easie_chart.vue';
+
 export { default as easieCheckbox } from './components/easie_checkbox/easie_checkbox.vue';
 export { default as easieDefaultMeta } from './components/easie_default_meta/easie_default_meta.vue';
 export { default as easieFormInput } from './components/easie_form_input/easie_form_input.vue';
 export { default as easieHr } from './components/easie_hr/easie_hr.vue';
-export { default as easieIndicator } from './components/easie_indicator/easie_indicator.vue';
+
 export { default as easieItemTools } from './components/easie_item_tools/easie_item_tools.vue';
-export { default as easieMap } from './components/easie_map/easie_map.vue';
 export { default as easieModal } from './components/easie_modal/easie_modal.vue';
 export { default as easieRadio } from './components/easie_radio/easie_radio.vue';
 export { default as easieRadioList } from './components/easie_radio_list/easie_radio_list.vue';
@@ -55,4 +54,12 @@ export { default as easieTopTabs } from './components/easie_tabs/easie_top_tabs.
 export { default as easieTextarea } from './components/easie_textarea/easie_textarea.vue';
 export { default as itemDataStructure } from './components/item_data_structure/item_data_structure.vue';
 export { default as tooltipLabel } from './components/tooltip_label/tooltip_label.vue';
+// board items
+export { default as boardSelect } from './components/easieboard_items/board_select/board_select.vue';
+export { default as boardSlider } from './components/easieboard_items/board_slider/board_slider.vue';
+export { default as easieChart } from './components/easieboard_items/easie_chart/easie_chart.vue';
+export { default as easieIndicator } from './components/easieboard_items/easie_indicator/easie_indicator.vue';
+export { default as easieMap } from './components/easieboard_items/easie_map/easie_map.vue';
+
+
 

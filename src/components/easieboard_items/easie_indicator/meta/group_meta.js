@@ -9,6 +9,7 @@ export const indicator_group_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['label','style','color'],
     bind:{}
   },
@@ -17,6 +18,7 @@ export const indicator_group_c_data = {
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
     get_value: (v) => (v + 'px'),
+    get_value_back: (v) => v,
     key_list: ['label','style','font-size'],
     bind:{type:'number', style:'max-width:150px'}
   },
@@ -25,6 +27,7 @@ export const indicator_group_c_data = {
     component: 'easie-form-input',
     label: 'Texto',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['comment','text'],
     bind:{}
   },
@@ -42,6 +45,7 @@ export const indicator_group_c_data = {
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
+    get_value_back: (v) => v,
     key_list: ['comment','label','style','color'],
     bind:{}
   }

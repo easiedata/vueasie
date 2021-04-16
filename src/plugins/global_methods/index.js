@@ -73,5 +73,9 @@ export default {
             return  name.split(" ")[0] + name.split(" ")[1];
         }
 
+        Vue.prototype.$is_function = (variable) => {
+            return variable && {}.toString.call(variable) === '[object Function]';
+        }
+
     }
 }

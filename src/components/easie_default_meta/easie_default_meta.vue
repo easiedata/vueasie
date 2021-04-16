@@ -56,6 +56,7 @@
 </template>
 
 <script>
+
   import easieAce from '../easie_ace/easie_ace.vue'
   import easieTextarea from '../easie_textarea/easie_textarea.vue';
   import easieSketchColor from '../easie_sketch_color/easie_sketch_color.vue';
@@ -87,6 +88,7 @@
     },
     data(){
       return {
+        valid_meta: true,
         show_advanced_settings:false,
         apply_label: 'Aplicar rótulos para:',
         apply: 'self',
@@ -130,9 +132,7 @@
         let c_data_v = {}
         for(let c in this.c_data){
           let key_list = this.c_data[c].key_list;
-          let val = this.$get_json_key(
-            key_list, this.item_meta, this.c_data[c].v
-          )
+          let val = this.c_data[c].get_value_back(this.$get_json_key(key_list, this.item_meta, this.c_data[c].v));
           c_data_v[c] = val;
         }
         return c_data_v;
