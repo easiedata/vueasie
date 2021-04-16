@@ -1,23 +1,39 @@
 export const chart_c_order = {
-  'title_style': [{section: 'Título', components: ['title_text', 'title_color', 'title_font_size'], show: true},{section: 'Subtítulo', components: ['subtitle_text','subtitle_color',
-   'subtitle_font_size'], show: true}],
+  'title_style': [
+    {section: 'Título', components: ['title_text', 'title_color', 'title_font_size'], show: true},
+    {section: 'Subtítulo', components: ['subtitle_text','subtitle_color','subtitle_font_size'], show: true}
+  ],
 
-  'legend_style': [{section: "Texto", components: ['legend_color', 'legend_font_size'], show: true}, {section: "Ítem", components: ['item_height', 'item_width', 'item_gap'], show: true}],
+  'legend_style': [
+    {section: "Texto", components: ['legend_color', 'legend_font_size'], show: true},
+    {section: "Ítem", components: ['item_height', 'item_width', 'item_gap'], show: true}
+  ],
 
-  'value_axis': [{section: "Estilo da Linha" , components: ['line_style_color', 'line_style_type', 'line_style_width' ], show: true},
-  {section: "Estilo do Marcador", components: ['axis_tick_color', 'axis_tick_width', 'axis_tick_length'], show: true}, {section: "Estilo do Texto", components:['axis_text_color',
-  'axis_text_font_family', 'axis_text_font_size'], show: true}, {section: "Estilo da Linha Divisória", components: ['split_line_style_color', 'split_line_style_type',
-  'split_line_style_width'], show: true}],
+  'value_axis': [
+    {section: "Estilo da Linha" , components: ['line_style_color', 'line_style_type', 'line_style_width' ], show: true},
+    {section: "Estilo do Marcador", components: ['axis_tick_color', 'axis_tick_width', 'axis_tick_length'], show: true},
+    {section: "Estilo do Texto", components:['axis_text_color','axis_text_font_family', 'axis_text_font_size'], show: true},
+    {section: "Estilo da Linha Divisória", components: ['split_line_style_color', 'split_line_style_type','split_line_style_width'], show: true}
+  ],
 
-  'category_axis': [{section: "Estilo da Linha", components: ['category_line_style_color', 'category_line_style_type', 'category_line_style_width'], show: true},
-  {section: "Estilo do Marcador" , components: ['category_axis_tick_color', 'category_axis_tick_width', 'category_axis_tick_length'], show: true},{section: "Estilo do Texto",
-  components: ['category_axis_text_color','category_axis_text_font_family', 'category_axis_text_font_size'], show: true}],
+  'category_axis': [
+    {section: "Estilo da Linha", components: ['category_line_style_color', 'category_line_style_type', 'category_line_style_width'], show: true},
+    {section: "Estilo do Marcador" , components: ['category_axis_tick_color', 'category_axis_tick_width', 'category_axis_tick_length'], show: true},
+    {section: "Estilo do Texto", components: ['category_axis_text_color','category_axis_text_font_family', 'category_axis_text_font_size'], show: true}
+  ],
 
-  'tool_tip': [{section: "Interatividade", components: ['show_tool_tip', 'show_axis_pointer'], show: true}],
+  'tool_tip': [
+    {section: "Interatividade", components: ['show_tool_tip', 'show_axis_pointer'], show: true}
+  ],
 
-  'chart_variations': [{section: "Variações do Gráfico", components: ['stack_variation', 'inverted_axis_variation'], show: true}],
-
-  'value_configs': [{section: "Visualização", components: ['show_zeros', 'show_null'], show: true}, {section: "Conversão", components: ['null_to_zero'], show: true}]
+  'chart_variations': [
+    {section: "Variações do Gráfico", components: ['stack_variation', 'inverted_axis_variation'], show: true}
+  ],
+  
+  'value_configs': [
+    {section: "Visualização", components: ['show_zeros', 'show_null'], show: true}, 
+    {section: "Conversão", components: ['null_to_zero'], show: true}
+  ]
 }
 
 export const chart_c_data = {

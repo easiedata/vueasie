@@ -1,11 +1,13 @@
-import {indicator_data_c_order, indicator_data_c_data, indicator_data_key_ref} from '../easie_indicator/meta/data_meta';
-import {indicator_group_c_order, indicator_group_c_data, indicator_group_key_ref} from '../easie_indicator/meta/group_meta';
-import {indicator_c_order, indicator_c_data, indicator_key_ref} from '../easie_indicator/meta/indicator_meta';
+import {indicator_data_c_order, indicator_data_c_data, indicator_data_key_ref} from '../easieboard_items/easie_indicator/meta/data_meta';
+import {indicator_group_c_order, indicator_group_c_data, indicator_group_key_ref} from '../easieboard_items/easie_indicator/meta/group_meta';
+import {indicator_c_order, indicator_c_data, indicator_key_ref} from '../easieboard_items/easie_indicator/meta/indicator_meta';
 
-import {chart_data_c_order, chart_data_c_data, chart_data_key_ref} from '../easie_chart/easiedata_meta/data_meta';
-import {chart_c_order, chart_c_data, chart_key_ref} from '../easie_chart/easiedata_meta/chart_meta';
+import {chart_data_c_order, chart_data_c_data, chart_data_key_ref} from '../easieboard_items/easie_chart/meta/data_meta';
+import {chart_c_order, chart_c_data, chart_key_ref} from '../easieboard_items/easie_chart/meta/chart_meta';
 
-import {map_c_order, map_c_data, map_key_ref} from '../easie_map/easiedata_meta/map_meta';
+import {map_c_order, map_c_data, map_key_ref} from '../easieboard_items/easie_map/meta/map_meta';
+
+import {slider_c_order, slider_c_data, slider_key_ref} from '../easieboard_items/board_slider/meta/slider_meta';
 
 
 export const meta_settings = {
@@ -30,13 +32,13 @@ export const meta_settings = {
     },
     'group':{ 'c_order': [], 'c_data': {}
     },
-    'item_meta': {'c_order': map_c_order, 'c_data': map_c_data, 'key_ref': map_key_ref
-    }
+    'item_meta': {'c_order': map_c_order, 'c_data': map_c_data, 'key_ref': map_key_ref}
   },
-  'filter': {
+  'slider': {
     'data':{ 'c_order': [], 'c_data': {}
     },
     'group':{ 'c_order': [], 'c_data': {}
-    }
+    },
+    'item_meta': {'c_order': map_c_order, 'c_data': map_c_data, 'key_ref': map_key_ref}
   }
 }

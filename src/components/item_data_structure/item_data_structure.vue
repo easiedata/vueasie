@@ -10,8 +10,7 @@
           </span>
           <label class="easiedata-group-label"> Estrutura de Dados</label>
         </div>
-        <div @click="show_options=!show_options"
-          v-if="group_options.indexOf(this.sel_group)>=0"
+        <div @click="$emit('input', !show_options)"
           class="item-group-list-elevation e-d-flex e-justify-content-between e-mb-1 e-py-2 e-pl-3">
           <span class="e-d-flex e-align-items-center hover-text-easie e-pr-3">
             <font-awesome-icon :icon="window_mode_icon" aria-hidden="true"></font-awesome-icon>
@@ -70,7 +69,7 @@
             <font-awesome-icon icon="database"></font-awesome-icon>
           </span>
       </div>
-      <div @click="show_options=!show_options"
+      <div @click="$emit('input', !show_options)"
       class="item-group-list-data-wrapper e-mr-1"
       v-if="group_options.indexOf(this.sel_group)>=0" >
         <span class="e-d-flex e-align-items-center hover-text-easie e-pl-3 e-pt-2 e-pb-2 e-mb-1">
@@ -148,13 +147,14 @@
     },
     props:{
       mode:{required:true},
-      show_events_modal:{default:false}
+      show_events_modal:{default:false},
+      value:{default:true}
     },
     data(){
       return {
+        show_options: this.value,
         initial_group: {},
         initial_data: {},
-        show_options: true,
         show_modal:{
           edit_structure: false,
           edit_data: false,
@@ -306,6 +306,9 @@
       }
     },
     watch:{
+      value(){
+        this.show_options = this.value;
+      },
       initial_group(){
         this.$emit('new_initial_group', this.initial_group)
       },
