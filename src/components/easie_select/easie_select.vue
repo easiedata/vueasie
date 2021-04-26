@@ -51,7 +51,6 @@
       searchable:{default: false},
       filterable:{default: true},
       search_options:{default: false},
-
       label:{default: 'label'},
       reduce: {
         type: Function,

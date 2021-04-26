@@ -36,6 +36,7 @@ export const indicator_group_c_data = {
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
     get_value: (v) => (v + 'px'),
+    get_value_back: (v) => v,
     key_list: ['comment','label','style','font-size'],
     bind:{type:'number', style:'max-width:150px'}
 

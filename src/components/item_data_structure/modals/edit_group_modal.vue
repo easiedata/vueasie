@@ -9,22 +9,22 @@
         <easie-tab key="structure" name="Estrutura" :selected="true">
           <slot name="group_structure"></slot>
         </easie-tab>
-        <template v-for="(c_order, name, index) in meta_settings[mode]['group']['c_order']" >
+        <template v-for="(c_order, name, index) in group_meta['c_order']" >
           <easie-tab
             :key="index+' '+ name"
-            :name="meta_settings[mode]['group']['key_ref'][name]"
+            :name="group_meta['key_ref'][name]"
             >
             <easie-default-meta
               @new_item_meta="new_item_meta"
               :meta_key="name"
-              :item_meta= "initial_group.item_meta"
+              :item_meta="initial_group.item_meta"
               :c_order="c_order"
-              :c_data="meta_settings[mode]['group']['c_data']"
+              :c_data="group_meta['c_data']"
               :apply_ref_type="'group'">
             </easie-default-meta>
           </easie-tab>
         </template>
-        <template v-for="(c, index) in default_item_meta[mode]" >
+        <!-- <template v-for="(c, index) in default_item_meta[mode]" >
           <easie-tab
             :key="index+'_'+c.name"
             :name="c.name"
@@ -34,7 +34,7 @@
             }">
             </component>
           </easie-tab>
-        </template>
+        </template> -->
         <easie-tab key="events" name="Ao Clicar" v-if="show_events_tab">
           <slot name="group_events"></slot>
         </easie-tab>
@@ -48,9 +48,7 @@
   import easieTab from '../../easie_tabs/easie_tab.vue';
   import easieTopTabs from '../../easie_tabs/easie_top_tabs.vue';
   import easieDefaultMeta from '../../easie_default_meta/easie_default_meta.vue';
-  import { meta_settings } from '../../easie_default_meta/default_meta.js';
-
-
+  
   export default {
     name: 'edit_structure_modal',
     components:{
@@ -60,21 +58,20 @@
       'easie-default-meta':easieDefaultMeta
     },
     props:{
-      mode:{required:true},
       initial_group:{required:true},
-      show_events_tab:{default:false}
+      show_events_tab:{default:false},
+      group_meta:{required:true},
     },
-    data(){
-      return {
-        meta_settings: {...meta_settings},
-        default_item_meta:{
-          indicator: [],
-          chart: [],
-          map: [],
-          filter: []
-        }
-      }
-    },
+    // data(){
+    //   return {
+    //     default_item_meta:{
+    //       indicator: [],
+    //       chart: [],
+    //       map: [],
+    //       filter: []
+    //     }
+    //   }
+    // },
     methods:{
       new_item_meta(d){
         this.$emit('new_item_meta', d)

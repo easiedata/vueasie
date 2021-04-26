@@ -1,19 +1,28 @@
-export const default_item_meta = {
-    'label': {
-        'show': false,
-        'position': 'top',
-        'formatter': '{c}',
-        'fontSize': '14',
-        'fontWeight': 'normal'
-    },
-    'emphasis': {
-        'label':{
+export const default_data_meta = {
+    'data': {
+        'label': {
             'show': false,
-            'fontSize': '24',
-            'fontWeight': 'bold'
+            'position': 'top',
+            'formatter': '{c}',
+            'fontSize': '14',
+            'fontWeight': 'normal',
+        },
+        'emphasis': {
+            'label':{
+                'show': false,
+                'fontSize': '24',
+                'fontWeight': 'bold'
+            }
         }
+    },
+    'series': {
+        'itemStyle': {'color': ''},
+        'markLine': {},
+        'markPoint': {}
     }
 }
+
+export const COLOR_KEY_REF = ['series', 'itemStyle', 'color']
 
 export const DEFAULT_DATA_COLORS = [
     '#003366', '#448ef6', '#fdb44b', '#80ac7b', '#6b778d', '#d04925', '#e5cf0d', '#7c4789',
@@ -169,7 +178,6 @@ export const default_echarts_json = {
         'bottom': 80
     },
     legend: {},
-    //series{},
     title: {},
     series: [],
     'toolbox': {},

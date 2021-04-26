@@ -1,5 +1,10 @@
 <template>
   <div id="app" class="e-mb-2">
+    <div class="e-d-flex e-flex-row e-align-items-center">
+      <label class="e-mr-2"> Font Awesome Icons: </label>
+      <font-awesome-icon :icon="['fab', 'js']"></font-awesome-icon>
+    </div>
+
     <div class="e-mt-4 e-px-4">
       <div>
         <label>Cor</label>
@@ -91,7 +96,7 @@
           lang="python"
           class="easie-editor-wrapper"
           height="300px"
-          width="1200px"/>
+          width="100%"/>
     </div>
   </div>
 </template>

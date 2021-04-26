@@ -25,11 +25,11 @@
       }
     },
     mounted() {
-      var vm = this;
-      var lang = this.lang||'text';
-      var theme = this.theme||'chrome';
+      let vm = this;
+      let lang = this.lang||'text';
+      let theme = this.theme||'chrome';
 
-      var editor = vm.editor = ace.edit(this.$refs.my_editor);
+      let editor = vm.editor = ace.edit(this.$refs.my_editor);
       editor.$blockScrolling = Infinity;
 
       this.$emit('init',editor);
@@ -45,7 +45,7 @@
       this.contentBackup = this.value;
 
       editor.on('change',function () {
-          var content = editor.getValue();
+          let content = editor.getValue();
           vm.$emit('input',content);
           vm.contentBackup = content;
       });
@@ -64,7 +64,7 @@
       }
     },
     beforeUnmount() {
-        var _a, _b;
+        let _a, _b;
         (_b = this.editor) === null || _b === void 0 ? void 0 : _b.destroy();
     },
     watch: {

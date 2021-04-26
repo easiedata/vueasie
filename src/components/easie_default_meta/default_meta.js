@@ -9,6 +9,8 @@ import {map_c_order, map_c_data, map_key_ref} from '../easieboard_items/easie_ma
 
 import {slider_c_order, slider_c_data, slider_key_ref} from '../easieboard_items/board_slider/meta/slider_meta';
 
+import {select_group_c_order, select_group_c_data, select_group_key_ref} from '../easieboard_items/board_select/meta/group_meta';
+
 
 export const meta_settings = {
   'indicator': {
@@ -40,5 +42,22 @@ export const meta_settings = {
     'group':{ 'c_order': [], 'c_data': {}
     },
     'item_meta': {'c_order': map_c_order, 'c_data': map_c_data, 'key_ref': map_key_ref}
+  },
+  'select': {
+    'group':{
+      'c_data': select_group_c_data,
+      'c_order': select_group_c_order,
+      'key_ref': select_group_key_ref
+    },
+    'data': {
+      'c_data': {},
+      'c_order': {},
+      'key_ref': {}
+    },
+    'item_meta':{
+      'c_data': {},
+      'c_order': {},
+      'key_ref': {}
+    }
   }
 }

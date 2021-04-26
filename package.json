@@ -29,6 +29,8 @@
     "vue-click-outside": "^1.1.0",
     "vue-color": "^2.8.1",
     "vue-select": "^3.11.2",
+    "vue-slider-component": "^3.2.11",
+    "vueasie": "file:vueasie-1.0.5.tgz",
     "vuedraggable": "^2.24.3"
   },
   "devDependencies": {

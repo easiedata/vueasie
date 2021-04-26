@@ -8,7 +8,6 @@
         :echarts_json="echarts_json"
         :geo_json_map="map"
         :upd_chart_size="upd_chart_size"
-        :height="chart_height"
         >
       </easie-echart>
     </div>
@@ -22,8 +21,7 @@
           'component_key':component_key,
             item_data:{
               group_list:group_list,
-              item_meta: item_meta,
-              filter_list: {}
+              item_meta: item_meta
             }
           })" class="e-ml-2 e-btn e-btn-outline-secondary">
         Salvar
@@ -56,6 +54,7 @@
       'easie-item-tools': easie_item_tools
     },
     props: {
+      board_filters: {required: false},
       edit_mode: { default: true },
       component_key: { default: '' },
       values_function: {
@@ -89,7 +88,6 @@
         map: {},
         reload_chart: 0,
         upd_chart_size: 0,
-        chart_height: '0px'
       }
     },
     computed:{
@@ -97,11 +95,6 @@
         return this.group_list.map(group =>{
           return group.name;
         })
-      }
-    },
-    mounted(){
-      if (!this.edit_mode || this.group_list_values.length) {
-        this.get_group_list_values()
       }
     },
     methods:{
@@ -166,12 +159,32 @@
         let loading = this.$loading.show({
           container: this.$el,
         });
-        this.values_function(this, () => { loading.hide() }, () => {
-          this.mount_echarts_json();
-          this.$emit('upd_group_list', this.group_list);
-          this.reload_chart ++;
-          this.resize();
+        this.values_function(this, loading, (data) => {
+          if(data.error){
+            this.$default_error_handle(data.data)
+            return;
+          }
+          this.group_list_values = data.data.group_list_values;
+          let component_js = this.$get_json_key(['component_js'], this.value, null)
+          if(component_js==null){
+            loading.hide();
+            this.apply_group_list_values();
+            return;
+          }
+          else{
+            component_js =  new Function(component_js)();
+            component_js(this, ()=> {
+              loading.hide();
+              this.apply_group_list_values();
+            });            
+          }
         });
+      },
+      apply_group_list_values(){
+        this.mount_echarts_json();
+        this.reload_chart ++;
+        this.$emit('upd_group_list', this.group_list);
+        this.resize();
       },
       new_params(group_list=false, item_meta=false){
         if(group_list != false){
@@ -235,15 +248,6 @@
         this.$emit('trigger_event', data);
       },
       resize(){
-        let edit_height = 0;
-        let c_height = this.$refs.component_wrapper.clientHeight;
-        if(this.edit_mode){
-          edit_height = 30;
-          if(c_height == 0){
-            c_height = 550;
-          }
-        }
-        this.chart_height = (c_height-10-edit_height) + 'px';
         this.upd_chart_size ++;
       },
       reload(){

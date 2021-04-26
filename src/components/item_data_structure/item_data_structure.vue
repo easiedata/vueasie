@@ -96,7 +96,7 @@
       <edit-data-modal
         v-if="show_modal.edit_data"
         :key="sel_group + '_' +initial_data.name"
-        :mode="mode"
+        :data_meta="meta_settings.data"
         :initial_group="sel_group"
         :initial_data="initial_data"
         :group_list="group_list"
@@ -112,7 +112,7 @@
       </edit-data-modal>
       <edit-group-modal
         v-if="show_modal.edit_group"
-        :mode="mode"
+        :group_meta="meta_settings.group"
         :initial_group="initial_group"
         :show_events_tab="show_events_modal"
         @new_item_meta="new_group_item_meta"
@@ -132,11 +132,11 @@
   import easieSelect from '../easie_select/easie_select.vue'
   import tooltipLabel  from '../tooltip_label/tooltip_label.vue';
   import draggable from 'vuedraggable';
-
   // self
   import editDataModal from './modals/edit_data_modal.vue';
   import editGroupModal from './modals/edit_group_modal.vue';
   import editStructureModal from './modals/edit_structure_modal.vue';
+  
 
   export default {
     name: 'item-data-structure',
@@ -149,9 +149,9 @@
       'draggable': draggable,
     },
     props:{
-      mode:{required:true},
       show_events_modal:{default:false},
-      value:{default:true}
+      value:{default:true},
+      meta_settings:{required:true}
     },
     data(){
       return {
@@ -288,9 +288,9 @@
           return;
         }
       },
-      new_group_item_meta(d){
+      new_group_item_meta(d){ 
         let group_index = this.group_options.indexOf(this.sel_group);
-        let key_list = [group_index,'item_meta'];
+        let key_list = [group_index, 'item_meta'];
         this.group_list[group_index].item_meta = d.item_meta;
         this.initial_group = this.group_list[group_index];
         this.apply_value_group(
@@ -333,7 +333,7 @@
             this.group_opt = '';
           }
         }
-        this.$emit('new_sel_group',this.sel_group)
+        this.$emit('new_sel_group', this.sel_group)
       }
     }
   }

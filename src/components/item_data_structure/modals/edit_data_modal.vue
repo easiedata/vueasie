@@ -10,17 +10,17 @@
           <slot name="data_structure"></slot>
         </easie-tab>
         <template
-          v-for="(c_order, name, index) in meta_settings[mode]['data']['c_order']" >
+          v-for="(c_order, name, index) in data_meta['c_order']" >
           <easie-tab
             :key="index+' '+ name"
-            :name="meta_settings[mode]['data']['key_ref'][name]"
+            :name="data_meta['key_ref'][name]"
             >
             <easie-default-meta
               @new_item_meta="new_item_meta"
               :meta_key="name"
               :item_meta= "initial_data.item_meta"
               :c_order="c_order"
-              :c_data="meta_settings[mode]['data']['c_data']">
+              :c_data="data_meta['c_data']">
             </easie-default-meta>
           </easie-tab>
         </template>
@@ -48,22 +48,11 @@
       'easie-default-meta':easieDefaultMeta
     },
     props:{
-      mode:{required:true},
+      data_meta:{required:true},
       initial_data:{required: true},
       initial_group:{required:true},
       group_list:{required:true},
       show_events_tab:{default:false}
-    },
-    data(){
-      return{
-        meta_settings: {...meta_settings},
-        default_item_meta: {
-          indicator: [],
-          chart: [],
-          map:[],
-          filter:[]
-        }
-      }
     },
     methods:{
       new_item_meta(d){

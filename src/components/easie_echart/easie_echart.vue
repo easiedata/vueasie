@@ -24,18 +24,17 @@
       }
 
       this.myChart.setOption(this.echarts_json);
-      let v_self = this;
-      this.myChart.on('click', function (params) {
+      this.myChart.on('click', (params) => {
         if(params.seriesType == 'pie'){
           let group = params.seriesName;
           let data = params.name;
-          v_self.$emit('clicked_series', {group: group, data: data});
+          this.$emit('clicked_series', {group: group, data: data});
           return;
         }
         if(params.componentType == 'series'){
           let group = params.name;
           let data = params.seriesName;
-          v_self.$emit('clicked_series', {group: group, data: data});
+          this.$emit('clicked_series', {group: group, data: data});
           return;
         }
       });
