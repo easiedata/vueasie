@@ -1,7 +1,8 @@
 export default {
     install(Vue, opts){
 
-        Vue.prototype.$recursive_merge = (upd_json, ref_json)=>{
+        Vue.prototype.$recursive_merge = (upd_json, ref_json_receive)=>{
+            let ref_json = JSON.parse(JSON.stringify(ref_json_receive));
             let merged_json = {}
             let object_constructor = ({}).constructor;
             for (let key in upd_json){
@@ -11,7 +12,6 @@ export default {
                         val = Vue.prototype.$recursive_merge(upd_json[key], ref_json[key]);
                     }
                 }
-
                 merged_json[key] = val;
             }
 
@@ -34,7 +34,6 @@ export default {
             if(!(key in dict)){
                 dict[key] = {}
             }
-
             return Vue.prototype.$recursive_set_key(dict[key], key_list.slice(1), value);
         }
 

@@ -90,7 +90,7 @@
       return {
         valid_meta: true,
         show_advanced_settings:false,
-        apply_label: 'Aplicar rótulos para:',
+        apply_label: 'Aplicar Configurações para:',
         apply: 'self',
         apply_ref:{
           data: [

@@ -1,6 +1,6 @@
 <template>
   <div class="e-w-100" style="position:relative">
-    <div v-if="mount_ind" class="e-d-flex " style="overflow-x: auto;">
+    <div class="e-d-flex " style="overflow-x: auto;">
       <template v-for="(group, i) in group_list">
         <indicator
           v-if="group.name in group_list_values"
@@ -20,8 +20,7 @@
       <button
         v-if="edit_mode" v-show="save_item" @click="$emit('save_component', {'component_key':component_key, item_data:{
             group_list:group_list,
-            item_meta: item_meta,
-            filter_list: {}
+            item_meta: item_meta
           }
           })" class="e-ml-2 e-btn e-btn-outline-secondary \">
         Salvar
@@ -53,25 +52,25 @@
       'easie-item-tools': easieItemTools
     },
     props: {
+      board_state:{required:false},
+      board_filters:{required:false},
       save_item: { default: true },
       edit_mode: { default: true },
       component_key: { default: '' },
       values_function: {
         type: Function,
-        default: function() {
-          this.group_list_values = {}
-        }
+        required:true
       },
       value: {
         type: Object,
         default: function() {
           return {
             group_list: [],
-            item_meta: {},
-            filter_list: []
-          };
+            item_meta: {}
+          }
         }
-      }
+      },
+
     },
     data(){
       return {
@@ -84,15 +83,9 @@
         },
       }
     },
-    mounted(){
-      if(this.group_list.length){
-        this.get_group_list_values();
-      }
-    },
     methods:{
       resize(){},
       new_params(group_list=false, item_meta=false){
-        this.mount_ind = false;
         if(group_list != false){
           this.group_list = group_list;
         }
@@ -113,15 +106,34 @@
         })
       },
       get_group_list_values(){
-        this.mount_ind = false;
         let loading = this.$loading.show({
           container: this.$el,
         });
-        this.values_function(this, () => { loading.hide() }, () => {
-          this.load_group_list_defaults();
-          this.mount_ind = true;
-          this.$emit('upd_group_list', this.group_list);
+        this.values_function(this, loading, (data) => {
+          if(data.error){
+            this.$default_error_handle(data.data)
+            return;
+          }
+          this.group_list_values = data.data.group_list_values;
+          let component_js = this.$get_json_key(['component_js'], this.value, null)
+          if(component_js==null){
+            loading.hide();
+            this.apply_group_list_values();
+            return;
+          }
+          else{
+            component_js =  new Function(component_js)();
+            component_js(this, ()=> {
+              loading.hide();
+              this.apply_group_list_values();
+            });            
+          }
         });
+      },
+      apply_group_list_values(){
+        this.load_group_list_defaults();
+        this.mount_ind++;
+        this.$emit('upd_group_list', this.group_list);
       },
       reload(){
         this.get_group_list_values();

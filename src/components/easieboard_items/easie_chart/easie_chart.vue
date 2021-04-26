@@ -30,7 +30,7 @@
 <script>
   import easie_echart from '../../easie_echart/easie_echart.vue';
   import chart_menu_tools from './chart_menu_tools.vue';
-  import { default_item_meta, default_chart_meta, default_echarts_json, default_toolbox, DEFAULT_DATA_COLORS } from './meta/meta'
+  import { default_data_meta, default_chart_meta, default_echarts_json, default_toolbox, DEFAULT_DATA_COLORS, COLOR_KEY_REF } from './meta/meta'
 
   export default {
     name: 'easie-chart',
@@ -39,6 +39,7 @@
       'chart-menu-tools': chart_menu_tools
     },
     props: {
+      board_filters: {required: false},
       save_item: { default: true },
       edit_mode: { default: true },
       component_key: { default: '' },
@@ -53,11 +54,11 @@
         default: function() {
           return {
             group_list: [],
-            item_meta: {},
-            filter_list: []
+            item_meta: {}
           }
         }
-      }
+      },
+
     },
     data(){
       return {
@@ -68,9 +69,7 @@
         new_complete_data: 0,
         reload_chart: 0,
         upd_chart_size: 0,
-        easiedata_labels: {},
         easiedata_items: {},
-        series_colors: {},
         colors_ref: {}
       }
     },
@@ -81,39 +80,28 @@
         })
       }
     },
-    mounted(){
-      if (this.group_list_values.length) {
-        this.get_group_list_values()
-      }
-    },
     methods:{
-      mount_item_configs(){
+      load_group_list_defaults(){
         this.colors_ref = {}
-        for (let g in this.group_list){
-          let group = this.group_list[g]
-          this.easiedata_labels[group['name']] = {}
-          this.easiedata_items[group['name']] = {}
-          for (let d in group['data_list']){
-            let data = group['data_list'][d]
-            try{
-                this.colors_ref[data['name']] = data['item_meta']['item']['itemStyle']['color']
+        this.group_list = this.group_list.map(group => {
+          this.easiedata_items[group.name] = {}; 
+          group['item_meta'] = {};
+          group['data_list'] = group.data_list.map(data => { 
+            data['item_meta'] = this.$recursive_merge(data['item_meta'], default_data_meta);
+            let color = this.$get_json_key(COLOR_KEY_REF, data['item_meta'], '');
+            if(color == ''){
+              this.$recursive_set_key(data['item_meta'], COLOR_KEY_REF, this.get_easie_color(data['name']));
             }
-            catch (e){
-              this.get_easie_color(data['name'])
-              data['item_meta'] = {
-                ...default_item_meta,
-                'item':{
-                  'itemStyle': {
-                    'color': this.colors_ref[data['name']]
-                  }
-                }
-              }
+            else {
+              this.colors_ref[data['name']] = color;
             }
-            this.easiedata_labels[group['name']][data['name']] = data['item_meta']['label']
-            this.easiedata_items[group['name']][data['name']] = data['item_meta']['item']
-            this.series_colors[data['name']] = data['item_meta']['item']
-          }
-        }
+
+            this.easiedata_items[group['name']][data['name']] = data['item_meta'];
+            return data;
+          })
+          return group
+        });
+        this.$emit('upd_group_list', this.group_list);
       },
       mount_pie_chart_json(){
         this.echarts_json = {...default_echarts_json }
@@ -155,30 +143,27 @@
         this.echarts_json['series'] = []
         for (let group in idx_groups){
           let group_name = idx_groups[group]
+          let item_data = {}
           let item_group = {
             'name': group_name,
             'type': this.item_meta['chart_type'],
             'center': centers[group],
             'radius': [70, 90],
-            'data': []
+            'data': [],
           }
           for (let subgroup in idx_subgroups){
             let data_name = idx_subgroups[subgroup]
             let value_data = this.group_list_values[group_name][data_name]
-            let item_data = {
+            item_data = {
               'name': data_name,
               'value': value_data,
-              'label': this.easiedata_labels[group_name][data_name],
-              'labelLine': {
-                'show': false
-              },
-              ...this.easiedata_items[group_name][data_name]
+              ...this.$get_json_key([group_name, data_name, 'data'], this.easiedata_items, {}),
+              ...this.$get_json_key([group_name, data_name, 'series'], this.easiedata_items, {}),
             }
             item_group['data'].push(item_data)
           }
           this.echarts_json['series'].push(item_group)
         }
-
         let toolbox = default_toolbox
         toolbox['feature']['saveAsImage']['name'] = [
         'easie', this.item_meta['chart_title'], 'img'].join('_')
@@ -195,7 +180,7 @@
         }
       },
       mount_echarts_json(){
-        this.echarts_json = {...default_echarts_json }
+        this.echarts_json = {...default_echarts_json}
         let stack_type = ''
         if (this.item_meta['stack']) {
           stack_type = 'apply'
@@ -214,29 +199,31 @@
           }
         }
 
-        this.echarts_json['series'] = []
+        this.echarts_json['series'] = [];
+
         for (let subgroup in idx_subgroups){
           let data_name = idx_subgroups[subgroup]
-          let item_data = {
+          let item_data =  {
             'name': data_name,
+            'data': [],
             'stack': this.item_meta['stack'],
-            'type': this.item_meta['chart_type'],
-            'data':[],
-            'itemStyle': {}
+            'type': this.item_meta['chart_type']
           }
+          let group_name = '';
           for (let group in idx_groups){
-            let group_name = idx_groups[group]
+            group_name = idx_groups[group]
             let value_data = this.group_list_values[group_name][data_name]
             let item_group = {
               'name': group_name,
               'value': value_data,
-              'label': default_item_meta['label'],
-              ...this.easiedata_items[group_name][data_name]
+              ...this.$get_json_key([group_name, data_name, 'data'], this.easiedata_items, {}),
             }
             item_data['data'].push(item_group)
           }
-          item_data['itemStyle']={...this.series_colors[data_name]['itemStyle']}
-          this.echarts_json['series'].push(item_data)
+          this.echarts_json['series'].push({
+            ...item_data, 
+            ...this.$get_json_key([group_name, data_name, 'series'], this.easiedata_items, {})
+          })
         }
 
         this.echarts_json['title'] = {
@@ -288,10 +275,11 @@
       },
       get_easie_color(name){
         if (!(name in this.colors_ref)) {
-            var idx = Object.keys(this.colors_ref).length
+            let idx = Object.keys(this.colors_ref).length;
             if (idx >= DEFAULT_DATA_COLORS.length){
               let list_color_ref = [this.colors_ref]
-              let r_color = this.colors_ref[0]
+              let r_color = list_color_ref[0];
+              // let r_color = this.colors_ref[0]
               while(list_color_ref.some(e => this.colors_ref[e] == r_color)){
                 r_color = this.getRandomRgb()
                 this.colors_ref[name] = r_color
@@ -301,12 +289,12 @@
               this.colors_ref[name] = DEFAULT_DATA_COLORS[idx]
             }
         }
+        return this.colors_ref[name];
       },
       new_params(group_list=false, item_meta=false){
         if(group_list != false){
           this.group_list = group_list;
         }
-
         if(item_meta != false){
           this.item_meta = item_meta;
           // to review
@@ -318,10 +306,31 @@
         let loading = this.$loading.show({
           container: this.$el,
         });
-        this.values_function(this, () => { loading.hide() }, this.update_meta());
+        this.values_function(this, loading, (data) => {
+          if(data.error){
+            this.$default_error_handle(data.data)
+            return;
+          }
+          this.group_list_values = data.data.group_list_values;
+          let component_js = this.$get_json_key(['component_js'], this.value, null);
+
+          if(component_js==null){
+            loading.hide();
+            this.apply_group_list_values();
+            return;
+          }
+          else{
+            component_js =  new Function(component_js)();
+            component_js(this, () => {
+              loading.hide();
+              this.apply_group_list_values();
+            });            
+          }
+
+        })
       },
-      update_meta(){
-        this.mount_item_configs()
+      apply_group_list_values(){
+        this.load_group_list_defaults();
         if(this.item_meta['chart_type'] == 'pie'){
           this.mount_pie_chart_json()
         }

@@ -1,46 +1,50 @@
 export const chart_data_c_order = {
-  'label': [{section: "Normal", components: ['label_normal_show', 'label_color','label_normal_font_size', 'label_normal_position', 'label_normal_formatter'], show: true}, {section: "Ênfase",
-  components: ['label_emphasis_show', 'label_emphasis_font_size'], show: true}]
+  'series': [
+    {section: 'Série', components:['series_color'], show:true},
+  ],
+  'data': [
+    {section: "Texto", components: ['label_show', 'label_font_size', 'label_position', 'label_formatter'], show: true}, 
+    {section: "Ênfase", components: ['emphasis_show', 'emphasis_font_size'], show: true}
+  ] 
 }
 
 export const chart_data_c_data = {
-  label_normal_show:{
-    v:false,
-    component:'easie-switch',
-    label: '',
-    get_value: (v) => v,
-    get_value_back: (v) => v,
-    key_list: ['label','normal', 'show'],
-    bind:{
-      s_label: 'Mostrar Rótulo',
-    }
-  },
-  label_color: {
+  series_color:{
     v: '#fff',
     component: 'easie-sketch-color',
     label: 'Cor',
     get_value: (v) => v,
     get_value_back: (v) => v,
-    key_list: ['label', 'normal', 'textStyle', 'color'],
+    key_list: ['series', 'itemStyle', 'color'],
+    bind:{}
+  },
+  label_show:{
+    v:false,
+    component:'easie-switch',
+    label: '',
+    get_value: (v) => v,
+    get_value_back: (v) => v,
+    key_list: ['data', 'label', 'show'],
     bind:{
+      s_label: 'Mostrar Rótulo',
     }
   },
-  label_normal_font_size: {
+  label_font_size: {
     v: '14',
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
     get_value: (v) => v,
     get_value_back: (v) => v,
-    key_list: ['label','normal', 'textStyle','fontSize'],
+    key_list: ['data', 'label', 'fontSize'],
     bind:{type:'number', style:'max-width:150px'}
   },
-  label_normal_position:{
+  label_position:{
     v:'Em cima',
     component: 'easie-select',
     label: 'Posição',
     get_value: (v) => v,
     get_value_back: (v) => v,
-    key_list: ['label','normal','position'],
+    key_list: ['data', 'label', 'position'],
     bind:{ options:[
       {value:'top', label: 'Em cima'},
       {value:'inside', label: 'Dentro'},
@@ -51,7 +55,7 @@ export const chart_data_c_data = {
       reduce: option => option.value
     }
   },
-  label_normal_formatter:{
+  label_formatter:{
     v:'{c}',
     component: 'easie-form-input',
     label: 'Formatação',
@@ -72,29 +76,30 @@ export const chart_data_c_data = {
               },
     get_value: (v) => v,
     get_value_back: (v) => v,
-    key_list: ['label','normal','formatter'],
+    key_list: ['data', 'label', 'formatter'],
     bind:{}
   },
-  label_emphasis_show:{
+  emphasis_show:{
     v:false,
     component:'easie-switch',
     label: '',
     get_value: (v) => v,
     get_value_back: (v) => v,
-    key_list: ['label','emphasis', 'show'],
+    key_list: ['data', 'emphasis', 'label', 'show'],
     bind:{ s_label: 'Ênfase Rótulo'}
   },
-  label_emphasis_font_size: {
+  emphasis_font_size: {
     v: '24',
     component: 'easie-form-input',
     label: 'Tamanho Fonte',
     get_value: (v) => v,
     get_value_back: (v) => v,
-    key_list: ['label', 'emphasis', 'textStyle','fontSize'],
+    key_list: ['data', 'emphasis', 'label','fontSize'],
     bind:{type:'number', style:'max-width:150px'}
   }
 }
 
 export const chart_data_key_ref = {
-  'label': 'Rótulo Dado'
+  'series': 'Série do Dado',
+  'data': 'Dado'
 }

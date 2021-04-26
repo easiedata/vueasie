@@ -5,11 +5,12 @@
     </div>
     <div v-if="mount_slider"  style="overflow-x: auto;">
       <item-slider
-        @new_filter="new_filter({...$event, index:i})"
+        @new_state="new_state({...$event, index:i})"
         v-for="(group, i) in group_list"
         :key="'filter'+'_'+i+'_'+reload_slider"
         :data_list="group.data_list"
-        :item_meta="group.item_meta">
+        :group_item_meta="group.item_meta"
+        :group_rule="group.rule">
       </item-slider>
     </div>
     <div v-if="edit_mode" class="d-flex justify-content-end mt-4">
@@ -21,7 +22,6 @@
         v-if="edit_mode" @click="$emit('save_component', {'component_key':component_key, item_data:{
             group_list:group_list,
             item_meta: item_meta,
-            filter_list: {}
           }
         })" class="ml-2 btn btn-outline-secondary">
         Salvar
@@ -93,7 +93,8 @@
         group_list: this.value.group_list,
         mount_slider: 0,
         reload_slider: 0,
-        rules: {}
+        rules: {},
+        values: {}
       }
     },
     mounted(){
@@ -121,15 +122,15 @@
           }
         }
       },
-      new_filter(data){
+      new_state(data){
         this.group_list[data.index].item_meta = data.item_meta;
         this.$emit('upd_group_list', this.group_list);
         this.rules[data.index] = data.rule;
-        // new filter
-        this.$emit('new_filter', {
+        this.values[data.index] = data.value;
+        this.$emit('new_state', {
+          values: this.values,
           rule: Object.values(this.rules).join(' AND '),
-          component_key: this.component_key,
-          group_list: this.group_list
+          component_key: this.component_key
         })
 
       }
