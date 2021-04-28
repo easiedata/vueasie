@@ -39,6 +39,7 @@
       'chart-menu-tools': chart_menu_tools
     },
     props: {
+      board_state: {required: false},
       board_filters: {required: false},
       save_item: { default: true },
       edit_mode: { default: true },
@@ -104,7 +105,7 @@
         this.$emit('upd_group_list', this.group_list);
       },
       mount_pie_chart_json(){
-        this.echarts_json = {...default_echarts_json }
+        this.echarts_json = {...default_echarts_json, ...this.item_meta.extra}
         let idx_groups = []
         let idx_subgroups = []
         for (let group in this.group_list_values){
@@ -180,7 +181,7 @@
         }
       },
       mount_echarts_json(){
-        this.echarts_json = {...default_echarts_json}
+        this.echarts_json = {...default_echarts_json, ...this.item_meta.extra}
         let stack_type = ''
         if (this.item_meta['stack']) {
           stack_type = 'apply'
@@ -259,6 +260,11 @@
           data: idx_groups,
           ...this.item_meta['category_axis_style']
         }]
+        this.echarts_json = {
+          ...this.echarts_json,
+          ...this.item_meta.extra
+        }
+
       },
       i_pos(i, g_len){
         return parseInt(((100/g_len)/2) + i*(100/g_len))
@@ -279,7 +285,6 @@
             if (idx >= DEFAULT_DATA_COLORS.length){
               let list_color_ref = [this.colors_ref]
               let r_color = list_color_ref[0];
-              // let r_color = this.colors_ref[0]
               while(list_color_ref.some(e => this.colors_ref[e] == r_color)){
                 r_color = this.getRandomRgb()
                 this.colors_ref[name] = r_color
@@ -290,17 +295,6 @@
             }
         }
         return this.colors_ref[name];
-      },
-      new_params(group_list=false, item_meta=false){
-        if(group_list != false){
-          this.group_list = group_list;
-        }
-        if(item_meta != false){
-          this.item_meta = item_meta;
-          // to review
-          this.$refs.c_menu_tools.chart_meta = item_meta;
-        }
-        this.get_group_list_values()
       },
       get_group_list_values(){
         let loading = this.$loading.show({
@@ -395,6 +389,7 @@
         this.upd_chart_size ++;
       },
       reload(){
+        this.group_list = this.value.group_list;
         this.get_group_list_values()
       }
     }

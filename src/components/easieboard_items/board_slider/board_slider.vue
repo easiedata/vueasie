@@ -98,28 +98,25 @@
       }
     },
     mounted(){
-      this.new_params(this.group_list);
+      this.init();
     },
     methods:{
       resize(){},
+      reload(){},
       load_group_list_defaults(){
         this.group_list = this.group_list.map(group =>{
           group['item_meta'] = this.$recursive_merge(group['item_meta'], {...default_group_meta});
           return group
         })
       },
-      new_params(group_list=false, item_meta=false){
-        if (item_meta != false){
-          this.item_meta = item_meta
-        }
-        if (group_list != false){
-          if(group_list.length){
-            this.mount_slider = false;
-            this.group_list = group_list;
-            this.load_group_list_defaults()
-            this.mount_slider = true;
-            this.reload_slider ++;
-          }
+      init(){
+        if(this.group_list.length){
+          this.group_list = this.value.group_list;
+          // force beforeDestroy
+          this.mount_slider = false;
+          this.load_group_list_defaults()
+          this.mount_slider = true;
+          this.reload_slider ++;
         }
       },
       new_state(data){
@@ -132,7 +129,6 @@
           rule: Object.values(this.rules).join(' AND '),
           component_key: this.component_key
         })
-
       }
     }
   }
