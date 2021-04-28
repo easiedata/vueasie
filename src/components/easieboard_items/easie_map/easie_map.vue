@@ -186,16 +186,6 @@
         this.$emit('upd_group_list', this.group_list);
         this.resize();
       },
-      new_params(group_list=false, item_meta=false){
-        if(group_list != false){
-          this.group_list = group_list;
-        }
-
-        if(item_meta != false){
-          this.item_meta = item_meta
-        }
-        this.get_group_list_values()
-      },
       easiedata_clicked(data){
         let group_index = this.group_options.indexOf(brazil_chart_group_ref_back[data['group']]);
         let data_options = this.group_list[group_index].data_list.map(data=>{
@@ -251,7 +241,8 @@
         this.upd_chart_size ++;
       },
       reload(){
-        this.get_group_list_values();
+        this.group_list = this.value.group_list;
+        this.get_group_list_values()
       },
       close_modal(modal_ref) {
         this.disp_ref[modal_ref] = false;

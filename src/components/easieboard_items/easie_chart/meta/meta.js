@@ -16,6 +16,10 @@ export const default_data_meta = {
         }
     },
     'series': {
+        'emphasis': {
+            'focus': 'series',
+            'blurScope': 'coordinateSystem'
+        },
         'itemStyle': {'color': ''},
         'markLine': {},
         'markPoint': {}
@@ -30,6 +34,7 @@ export const DEFAULT_DATA_COLORS = [
 ]
 
 export const default_chart_meta = {
+    "extra": {},
     "chart_type": "bar",
     "chart_title": "Título",
     "chart_subtitle": "Subtítulo",
@@ -174,12 +179,12 @@ export const default_toolbox = {
 }
 
 export const default_echarts_json = {
-    grid: {
-        'bottom': 80
+    'grid': {
+        'height': "70%"
     },
-    legend: {},
-    title: {},
-    series: [],
+    'legend': {},
+    'title': {},
+    'series': [],
     'toolbox': {},
     'tooltip': {
         'show': true,

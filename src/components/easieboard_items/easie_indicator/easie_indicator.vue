@@ -85,16 +85,6 @@
     },
     methods:{
       resize(){},
-      new_params(group_list=false, item_meta=false){
-        if(group_list != false){
-          this.group_list = group_list;
-        }
-
-        if(item_meta != false){
-          this.item_meta = item_meta
-        }
-        this.get_group_list_values()
-      },
       load_group_list_defaults(){
         this.group_list = this.group_list.map(group =>{
           group['item_meta'] = this.$recursive_merge(group['item_meta'], {...default_group_meta});
@@ -136,7 +126,8 @@
         this.$emit('upd_group_list', this.group_list);
       },
       reload(){
-        this.get_group_list_values();
+        this.group_list = this.value.group_list;
+        this.get_group_list_values()
       },
       close_modal(modal_ref) {
         this.disp_ref[modal_ref] = false;

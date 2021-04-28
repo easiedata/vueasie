@@ -176,8 +176,10 @@
 
 
   /*vs stuff*/
-  .vs__selected-options{
+  .vs__selected-options {
     padding:0px;
+    flex-wrap: nowrap;
+    overflow: hidden;
   }
 
   .vs__dropdown-option--highlight {

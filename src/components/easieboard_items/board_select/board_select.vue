@@ -79,9 +79,16 @@
       }
     },
     mounted(){
-      this.new_params(this.group_list);
+      this.init();
     },
     methods:{
+      init(){
+        this.group_list = this.value.group_list;
+        if(this.group_list.length){
+          this.load_group_list_defaults()
+          this.reload_select ++;
+        }
+      },
       load_group_list_defaults(){
         this.group_list = this.group_list.map(group =>{
           group['item_meta'] = this.$recursive_merge(group['item_meta'], {...default_group_meta});
@@ -90,15 +97,7 @@
         this.$emit('upd_group_list', this.group_list);
       },
       resize(){},
-      new_params(group_list=false){
-        if(group_list != false){
-          this.group_list = group_list;
-          if(group_list.length){
-            this.load_group_list_defaults()
-            this.reload_select ++;
-          }
-        }
-      },
+      reload(){},
       new_state(data){
         this.group_list[data.index].item_meta = data.item_meta;
         this.$emit('upd_group_list', this.group_list);
