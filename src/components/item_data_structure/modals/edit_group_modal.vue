@@ -24,17 +24,6 @@
             </easie-default-meta>
           </easie-tab>
         </template>
-        <!-- <template v-for="(c, index) in default_item_meta[mode]" >
-          <easie-tab
-            :key="index+'_'+c.name"
-            :name="c.name"
-            >
-            <component @new_item_meta="new_item_meta" :is="c.component" v-bind="{
-              'item_meta':initial_group.item_meta
-            }">
-            </component>
-          </easie-tab>
-        </template> -->
         <easie-tab key="events" name="Ao Clicar" v-if="show_events_tab">
           <slot name="group_events"></slot>
         </easie-tab>
@@ -62,16 +51,6 @@
       show_events_tab:{default:false},
       group_meta:{required:true},
     },
-    // data(){
-    //   return {
-    //     default_item_meta:{
-    //       indicator: [],
-    //       chart: [],
-    //       map: [],
-    //       filter: []
-    //     }
-    //   }
-    // },
     methods:{
       new_item_meta(d){
         this.$emit('new_item_meta', d)

@@ -41,7 +41,8 @@
     val: '',
     select_bind:{
       searchable: false,
-      clearable: false
+      clearable: false,
+      multiple: false
     }
   }
 

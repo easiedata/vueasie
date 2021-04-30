@@ -45,9 +45,9 @@
       this.contentBackup = this.value;
 
       editor.on('change',function () {
-          let content = editor.getValue();
-          vm.$emit('input',content);
-          vm.contentBackup = content;
+        let content = editor.getValue();
+        vm.$emit('input',content);
+        vm.contentBackup = content;
       });
       if(vm.options)
           editor.setOptions(vm.options);
