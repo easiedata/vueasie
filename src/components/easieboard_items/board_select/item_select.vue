@@ -33,11 +33,21 @@
     },
     methods:{
       on_input(){
-        let rule = this.item_meta.val.rule;
+        let val = this.item_meta.val
+        let rule = '';
+        if(val== null){
+          rule = '';
+        }
+        else if(Array.isArray(val) && this.group_item_meta.select_bind.multiple){
+          rule = '( ' + val.map(d=>{ return d.rule }).join(' OR ') + ' )';
+        }
+        else{
+          rule = val.rule; 
+        }
         this.$emit('new_state', {
           rule: rule, 
           item_meta: this.item_meta, 
-          value: this.item_meta.val.value
+          value: this.item_meta.val
         });
       }
     }

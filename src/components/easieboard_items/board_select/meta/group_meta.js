@@ -1,8 +1,8 @@
 export const select_group_c_order = {
   'label': [
     {section: "Estilo", components: ['label_color', 'label_font_size'], show: true}],
-  'options': [
-    {section: "Configurações", components: ['searchable', 'clearable'], show:true}
+  'select_bind': [
+    {section: "Configurações", components: ['searchable', 'clearable', 'multiple'], show:true}
   ]
 }
 
@@ -40,10 +40,18 @@ export const select_group_c_data = {
     get_value_back: (v) => v,
     key_list: ['select_bind', 'clearable'],
     bind: { s_label: 'Limpável'}
+  },
+  multiple:{
+    v: false,
+    component: 'easie-switch',
+    get_value: (v) => v,
+    get_value_back: (v) => v,
+    key_list: ['select_bind', 'multiple'],
+    bind: { s_label: 'Múltiplo'}
   }
 }
 
 export const select_group_key_ref = {
   'label': 'Rótulo Grupo',
-  'options': 'Configurações Seletor'
+  'select_bind': 'Configurações Seletor'
 }

@@ -148,9 +148,7 @@
         }
         this.$notify({text: 'Configuração Aplicada', type: 'success'})
         this.$emit('new_item_meta', {
-          item_meta: {
-            ...this.meta_val,
-          },
+          item_meta: JSON.parse(this.item_meta_string),
           apply: this.apply,
           key: this.meta_key
         })
