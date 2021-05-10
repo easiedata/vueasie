@@ -1,7 +1,8 @@
 <template>
   <div class="e-d-flex e-flex-column e-align-items-center e-justify-content-center e-w-100 e-px-1">
     <div  class="e-d-flex e-justify-content-center">
-      <label :style="$json2style(item_meta.label)"> {{ group_name }}</label>
+      <label v-if="!item_meta.label_tooltip.show" :style="$json2style(item_meta.label)"> {{ group_name }}</label>
+      <label v-else v-tooltip="item_meta.label_tooltip['v-tooltip']"  :style="$json2style(item_meta.label)"> {{ group_name }}</label>
     </div>
     <easie-select
       @input="on_input" 

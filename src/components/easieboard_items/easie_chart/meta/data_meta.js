@@ -60,20 +60,20 @@ export const chart_data_c_data = {
     component: 'easie-form-input',
     label: 'Formatação',
     tooltip: {
-              classes:['easie-formatter'],
-              placement: 'right',
-              delay: { show: 100, hide: 100 },
-              trigger: 'hover',
-              show:false,
-              content:`
-              <ul class='formatter-ul'>
-                <li><label> Váriaveis:</label></li>
-                <li><label>{a} => Nome Dado</label></li>
-                <li><label>{b} => Nome Grupo</label></li>
-                <li><label>{c} => Valor Dado</label></li>
-                <li><label>{d} => % Valor em pizza</label></li>
-                </ul>`
-              },
+      classes: ['easie-formatter'],
+      placement: 'right',
+      delay: { show: 100, hide: 100 },
+      trigger: 'hover',
+      show: false,
+      content:`
+      <ul class='formatter-ul'>
+        <li><label> Váriaveis:</label></li>
+        <li><label>{a} => Nome Dado</label></li>
+        <li><label>{b} => Nome Grupo</label></li>
+        <li><label>{c} => Valor Dado</label></li>
+        <li><label>{d} => % Valor em pizza</label></li>
+      </ul>`
+    },
     get_value: (v) => v,
     get_value_back: (v) => v,
     key_list: ['data', 'label', 'formatter'],

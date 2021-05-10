@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="e-d-flex">
-      <template v-for="(group, i) in group_list" >
+    <div v-if="init_components" class="e-d-flex">
+      <template  v-for="(group, i) in group_list" >
         <item-select
           @new_state="new_state({...$event, index:i})"
           :group_item_meta="group.item_meta"
@@ -32,17 +32,28 @@
   import  itemSelect from './item_select.vue';
 
   const default_group_meta = {
-    label: {
+    'label': {
       'color': '#696969',
       'font-size': '18px',
       'font-weight': 'bold',
       'font-family': 'sans-serif'
     },
-    val: '',
-    select_bind:{
-      searchable: false,
-      clearable: false,
-      multiple: false
+    'label_tooltip':{
+      'show': false,
+      'v-tooltip':{
+        'container': 'body',
+        'show': false,
+        'placement': 'right',
+        'delay':  { 'show': 100, 'hide': 100 },
+        'trigger': 'hover',
+        'content': `<div><label>easie tooltip</label></div>`
+      }
+    },
+    'val': '',
+    'select_bind': {
+      'searchable': false,
+      'clearable': false,
+      'multiple': false
     }
   }
 
@@ -71,6 +82,7 @@
     },
     data(){
       return {
+        init_components: false,
         rules: {},
         values: {},
         item_meta: {},
@@ -96,6 +108,7 @@
           return group
         });
         this.$emit('upd_group_list', this.group_list);
+        this.init_components = true;
       },
       resize(){},
       reload(){},
@@ -109,8 +122,7 @@
           rule: Object.values(this.rules).join(' AND '),
           component_key: this.component_key
         })
-      },
-      new_filter(){},
+      }
     }
   }
 </script>

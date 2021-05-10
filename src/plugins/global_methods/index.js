@@ -7,7 +7,7 @@ export default {
             let object_constructor = ({}).constructor;
             for (let key in upd_json){
                 let val = upd_json[key];
-                if(val!==null){
+                if(val!==null && typeof val != "undefined"){
                     if(val.constructor == object_constructor && ref_json.hasOwnProperty(key)){
                         val = Vue.prototype.$recursive_merge(upd_json[key], ref_json[key]);
                     }

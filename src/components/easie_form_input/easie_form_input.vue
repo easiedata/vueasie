@@ -4,12 +4,14 @@
     :class="{'focus': active}">
     <input
       ref="input_ref"
+      @keyup.enter="$emit('enter')"
       @input="on_input"
       @focus="focus"
       @blur="blur"
       v-inputmask="i_mask"
       v-model="val"
       class="e-w-100 e-ml-2"
+      :readonly="readonly"
       :type="input_type"
       style="outline: none !important;"
 />
@@ -33,6 +35,7 @@
       value:{required:true},
       placeholder:{default: ''},
       type: {default: ''},
+      readonly:{default: false},
       i_mask:{default: ()=> {return {}}}
     },
     data() {
@@ -59,7 +62,6 @@
         }
         if(this.type == 'number'){
           value = (value[0]=='-' ? '-' : '') + value.toString().replace(/[^0-9\.,]/g, '')
-
         }
         return value;
       },

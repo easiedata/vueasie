@@ -1,5 +1,17 @@
 <template>
-  <div id="app" class="e-mb-2">
+  <div id="app" class="e-p-3 e-mb-2">
+    
+    <div class="e-d-flex e-flex-row e-align-items-center">
+      <label class="e-mr-2"> V-Tooltip -> </label>
+      <label v-tooltip="{
+        show: false,
+        placement: 'right',
+        delay: {'show': 100,'hide': 100},
+        trigger: 'hover',
+        content: '<div><label>easie tooltip</label></div>'
+      }"> Label to apply</label>
+    </div>
+
     <div class="e-d-flex e-flex-row e-align-items-center">
       <label class="e-mr-2"> Font Awesome Icons: </label>
       <font-awesome-icon :icon="['fab', 'js']"></font-awesome-icon>

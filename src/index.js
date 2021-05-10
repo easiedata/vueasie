@@ -16,7 +16,7 @@ import { faJs } from '@fortawesome/free-brands-svg-icons'
 import VTooltip from 'v-tooltip';
 
 
-Vue.use(VTooltip);
+Vue.use(VTooltip, {defaultBoundariesElement: document.body});
 
 Vue.use(easie_pnotify);
 Vue.use(global_methods);
