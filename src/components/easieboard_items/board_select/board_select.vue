@@ -111,7 +111,13 @@
         this.init_components = true;
       },
       resize(){},
-      reload(){},
+      reload(){
+        let component_js = this.$get_json_key(['component_js'], this.value, null);
+        if(component_js != null){
+          component_js =  new Function(component_js)();
+          component_js(this, () => {})
+        }
+      },
       new_state(data){
         this.group_list[data.index].item_meta = data.item_meta;
         this.$emit('upd_group_list', this.group_list);

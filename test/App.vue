@@ -8,7 +8,7 @@
         placement: 'right',
         delay: {'show': 100,'hide': 100},
         trigger: 'hover',
-        content: '<div><label>easie tooltip</label></div>'
+        content: `<div><label>easie tooltip sklfja lksafjdkljdsf kldsfjlksadfj fdmslakf</label></div>`
       }"> Label to apply</label>
     </div>
 

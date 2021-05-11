@@ -8,7 +8,7 @@
     v-tooltip="{
       placement: 'top-start',
       delay: { show: 100, hide: 100 },
-      content:value,
+      content: value,
       show: show_tooltip,
       trigger: 'manual'
     }"   class="easie-overflow-class" :class="{'on-overflow':is_overflowing}">
