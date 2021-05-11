@@ -105,7 +105,7 @@
     cursor:pointer !important;
   }
   .easie-overflow-class.on-overflow:hover {
-    color:$primary;
+    color:$secondary;
   }
 
 
