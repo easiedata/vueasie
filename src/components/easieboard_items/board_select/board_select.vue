@@ -63,12 +63,12 @@
       itemSelect
     },
     props: {
+      board_state: {required: false},
+      board_filters: {required: false},
+      values_function: {required:false},
       save_item: { default: true },
       edit_mode: { default: true },
       component_key: { default: '' },
-      values_function: {
-        required:false
-      },
       value: {
         type: Object,
         default: function() {

@@ -8,7 +8,7 @@
         placement: 'right',
         delay: {'show': 100,'hide': 100},
         trigger: 'hover',
-        content: `<div><label>easie tooltip sklfja lksafjdkljdsf kldsfjlksadfj fdmslakf</label></div>`
+        content: tooltip_content
       }"> Label to apply</label>
     </div>
 
@@ -120,6 +120,16 @@ export default {
   name: 'App',
   data() {
     return {
+      tooltip_content: `
+      <div>
+        <div class='e-d-flex e-justify-content-center'>
+          <label style='text-decoration:underline; font-weigth:bold'>Obervação:</label>
+        </div>
+        <div>
+          <p><b>vueasie</b> - v-tooltip plugin</p>
+        </div>
+      </div>
+      `,
       text_color: '#696969',
       input_test: '23',
       visible: true,
