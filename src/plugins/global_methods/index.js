@@ -64,14 +64,6 @@ export default {
             }
         }
 
-        Vue.prototype.$url_name2content_name = (name) => {
-            return  name.split('@')[0] + ' ' + '@' + name.split('@')[1];
-        }
-
-        Vue.prototype.$content_name2url_name = (name) => {
-            return  name.split(" ")[0] + name.split(" ")[1];
-        }
-
         Vue.prototype.$is_function = (variable) => {
             return variable && {}.toString.call(variable) === '[object Function]';
         }

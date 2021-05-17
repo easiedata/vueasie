@@ -10,7 +10,8 @@
       @blur="blur"
       v-inputmask="i_mask"
       v-model="val"
-      class="e-w-100 e-ml-2"
+      class="e-w-100"
+      :placeholder="placeholder"
       :readonly="readonly"
       :type="input_type"
       style="outline: none !important;"
@@ -116,6 +117,9 @@
   }
 
   .easie-form-input-wrapper.focus *{
+    color: #2486be;
+  }
+  .easie-form-input-wrapper.focus  input::placeholder{
     color: #2486be;
   }
 
