@@ -12,9 +12,12 @@
       }"> Label to apply</label>
     </div>
 
-    <div class="e-d-flex e-flex-row e-align-items-center">
+    <div class="e-d-flex e-flex-row  e-align-items-center">
       <label class="e-mr-2"> Font Awesome Icons: </label>
-      <font-awesome-icon :icon="['fab', 'js']"></font-awesome-icon>
+      <div class="e-d-flex e-justify-content-around e-w-25">
+        <font-awesome-icon :icon="['fab', 'js']"></font-awesome-icon>
+        <font-awesome-icon :icon="['fas', 'info-circle']"></font-awesome-icon>
+      </div>
     </div>
 
     <div class="e-mt-4 e-px-4">
@@ -41,8 +44,11 @@
       </easie-hr>
     </div>
     <div v-if="visible" class="e-mt-4 e-px-4">
-      <easie-select class="e-w-75" v-model="sel_test" :options="test_options">
+      <easie-select class="e-w-75" v-model="sel_test" :searchable="true" :options="test_options">
       </easie-select>
+    </div>
+    <div v-if="visible" class="e-mt-4 e-px-4">
+      <easie-tree-select v-model="tree_sel_test" :options="test_tree_options"  class="e-w-75"></easie-tree-select>
     </div>
     <div class="e-d-flex e-align-items-center e-mb-2">
       <div v-if="visible" class="e-d-flex e-mt-4 e-px-4">
@@ -134,8 +140,10 @@ export default {
       input_test: '23',
       visible: true,
       checked: false,
-      test_options: ['=', '>', '>=', '<', '<=',  '!='],
       sel_test: '=',
+      test_options: ['=', '>', '>=', '<', '<=',  '!='],
+      test_tree_options: [{id: 'bla', label: 'bla', children: [{id: 'aloha_bla',label: 'aloha_bla'},{id: 'mahalo_bla', label: 'mahalo_bla'}]},{id: 'ble', label: 'ble', children: [{id: 'aloha_ble',label: 'aloha_ble'},{id: 'mahalo_ble',label: 'mahalo_ble'}]}],
+      tree_sel_test: 'aloha_ble',
       group_mode: 'new',
       apply_label: 'Opção escolhida:',
       apply: 'op1',

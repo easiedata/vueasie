@@ -60,6 +60,7 @@
         let is_overflowing = (el.clientWidth < el.scrollWidth) || (el.clientHeight < el.scrollHeight);
         el.style.overflow = cur_overflow;
         this.is_overflowing = is_overflowing;
+
       },
       mouse_over(){
         if(this.trigger=='hover'){
