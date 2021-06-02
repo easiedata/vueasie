@@ -1,18 +1,17 @@
 <template>
   <div class="easie-select" :class="{'active':active}">
-    <span class="easie-select-label" :class="{'show-label':show_label}">
-      {{ placeholder }}
-    </span>
     <v-select
       class="e-bg-white e-w-100"
       ref="v_select"
       @input="$emit('input', sel_val)"
-      @search="onSearch"
+      @search="on_search"
 
       v-model="sel_val"
       :options="sel_options"
       :append-to-body="true"
 
+
+      :placeholder="placeholder"
       :clearable="clearable"
       :searchable="searchable"
       :filterable="filterable"
@@ -23,7 +22,7 @@
       >
       <template #open-indicator="{ attributes }">
         <span class="easie-select-open-icon" v-bind="attributes">
-          <font-awesome-icon icon="chevron-down"></font-awesome-icon>
+          <font-awesome-icon class="easie-select-open-icon-arrow" icon="caret-down"></font-awesome-icon>
         </span>
       </template>
       <template slot="no-options">
@@ -64,19 +63,8 @@
         sel_val: this.value,
       }
     },
-    computed:{
-      show_label(){
-        if(this.active){
-          return true;
-        }
-        if(this.sel_val || this.sel_val === 0){
-          return true
-        }
-        return false;
-      }
-    },
     methods:{
-      onSearch(search, loading){
+      on_search(search, loading){
         if(search.length && this.$is_function(this.search_options)){
           if (this.timeout){ clearTimeout(this.timeout)}
           this.timeout = setTimeout(() => {
@@ -107,6 +95,9 @@
     watch:{
       value(){
         this.sel_val = this.value;
+      },
+      options(){
+        this.sel_options = this.options
       }
     }
   }
@@ -125,30 +116,9 @@
     width:100%;
   }
 
-  .easie-select-label {
-    z-index:1;
-    font-size: 0.9rem !important;
-    color:rgba(0, 0, 0, 0.4);
-    display:block;
-    left:43px;
-    top:36px;
-    position:absolute;
-    text-align:left;
-    transform:matrix(1, 0, 0, 1, -3, -30.6);
-    transition-delay:0s;
-    transition-duration:0.2s;
-    transition-property:all;
-    transition-timing-function:ease;
-  }
-
-
-  .easie-select-label.show-label{
-    top: 0px;
-    left:12px;
-  }
 
   .easie-select-icon {
-    margin-top:3px;
+    margin-top:3fpx;
     align-self: center;
     color:rgba(0,0,0, .5);
     font-size:20px;
@@ -171,7 +141,15 @@
 
 
   .easie-select-open-icon {
-    color:rgba(0, 0, 0, 0.4);
+    font-size: 15px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    color:rgba(0, 0, 0, 0.2);
+  }
+
+  .easie-select-open-icon:hover {
+    color:rgba(0, 0, 0, 0.8);
   }
 
 

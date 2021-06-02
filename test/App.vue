@@ -1,8 +1,23 @@
 <template>
-  <div id="app" class="e-mb-2">
+  <div id="app" class="e-p-3 e-mb-2">
+    
     <div class="e-d-flex e-flex-row e-align-items-center">
+      <label class="e-mr-2"> V-Tooltip -> </label>
+      <label v-tooltip="{
+        show: false,
+        placement: 'right',
+        delay: {'show': 100,'hide': 100},
+        trigger: 'hover',
+        content: tooltip_content
+      }"> Label to apply</label>
+    </div>
+
+    <div class="e-d-flex e-flex-row  e-align-items-center">
       <label class="e-mr-2"> Font Awesome Icons: </label>
-      <font-awesome-icon :icon="['fab', 'js']"></font-awesome-icon>
+      <div class="e-d-flex e-justify-content-around e-w-25">
+        <font-awesome-icon :icon="['fab', 'js']"></font-awesome-icon>
+        <font-awesome-icon :icon="['fas', 'info-circle']"></font-awesome-icon>
+      </div>
     </div>
 
     <div class="e-mt-4 e-px-4">
@@ -29,8 +44,11 @@
       </easie-hr>
     </div>
     <div v-if="visible" class="e-mt-4 e-px-4">
-      <easie-select class="e-w-75" v-model="sel_test" :options="test_options">
+      <easie-select class="e-w-75" v-model="sel_test" :searchable="true" :options="test_options">
       </easie-select>
+    </div>
+    <div v-if="visible" class="e-mt-4 e-px-4">
+      <easie-tree-select v-model="tree_sel_test" :options="test_tree_options"  class="e-w-75"></easie-tree-select>
     </div>
     <div class="e-d-flex e-align-items-center e-mb-2">
       <div v-if="visible" class="e-d-flex e-mt-4 e-px-4">
@@ -108,12 +126,24 @@ export default {
   name: 'App',
   data() {
     return {
+      tooltip_content: `
+      <div>
+        <div class='e-d-flex e-justify-content-center'>
+          <label style='text-decoration:underline; font-weigth:bold'>Obervação:</label>
+        </div>
+        <div>
+          <p><b>vueasie</b> - v-tooltip plugin</p>
+        </div>
+      </div>
+      `,
       text_color: '#696969',
       input_test: '23',
       visible: true,
       checked: false,
-      test_options: ['=', '>', '>=', '<', '<=',  '!='],
       sel_test: '=',
+      test_options: ['=', '>', '>=', '<', '<=',  '!='],
+      test_tree_options: [{id: 'bla', label: 'bla', children: [{id: 'aloha_bla',label: 'aloha_bla'},{id: 'mahalo_bla', label: 'mahalo_bla'}]},{id: 'ble', label: 'ble', children: [{id: 'aloha_ble',label: 'aloha_ble'},{id: 'mahalo_ble',label: 'mahalo_ble'}]}],
+      tree_sel_test: 'aloha_ble',
       group_mode: 'new',
       apply_label: 'Opção escolhida:',
       apply: 'op1',

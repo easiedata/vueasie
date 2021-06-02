@@ -7,7 +7,7 @@ export default {
             let object_constructor = ({}).constructor;
             for (let key in upd_json){
                 let val = upd_json[key];
-                if(val!==null){
+                if(val!==null && typeof val != "undefined"){
                     if(val.constructor == object_constructor && ref_json.hasOwnProperty(key)){
                         val = Vue.prototype.$recursive_merge(upd_json[key], ref_json[key]);
                     }
@@ -62,14 +62,6 @@ export default {
             else {
                 return default_v;
             }
-        }
-
-        Vue.prototype.$url_name2content_name = (name) => {
-            return  name.split('@')[0] + ' ' + '@' + name.split('@')[1];
-        }
-
-        Vue.prototype.$content_name2url_name = (name) => {
-            return  name.split(" ")[0] + name.split(" ")[1];
         }
 
         Vue.prototype.$is_function = (variable) => {

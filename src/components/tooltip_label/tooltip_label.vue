@@ -8,7 +8,7 @@
     v-tooltip="{
       placement: 'top-start',
       delay: { show: 100, hide: 100 },
-      content:value,
+      content: value,
       show: show_tooltip,
       trigger: 'manual'
     }"   class="easie-overflow-class" :class="{'on-overflow':is_overflowing}">
@@ -60,6 +60,7 @@
         let is_overflowing = (el.clientWidth < el.scrollWidth) || (el.clientHeight < el.scrollHeight);
         el.style.overflow = cur_overflow;
         this.is_overflowing = is_overflowing;
+
       },
       mouse_over(){
         if(this.trigger=='hover'){
@@ -92,7 +93,6 @@
 </script>
 
 <style lang="scss">
-  @import '../../assets/css/easie_styles/tooltip_over.scss';
   @import "../../assets/scss/variables.scss";
 
   .easie-overflow-class {
@@ -106,7 +106,7 @@
     cursor:pointer !important;
   }
   .easie-overflow-class.on-overflow:hover {
-    color:$primary;
+    color:$secondary;
   }
 
 
