@@ -53,6 +53,9 @@
     methods:{
       get_is_overflowing() {
         let el = this.$refs.label;
+        if(!el){
+          return;
+        }
         let cur_overflow = el.style.overflow;
         if ( !cur_overflow || cur_overflow === "visible" ){
           el.style.overflow = "hidden";

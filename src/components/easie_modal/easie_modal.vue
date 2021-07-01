@@ -88,7 +88,7 @@
 
   .easie-modal-body {
     padding: 7px;
-    max-height: 75vh;
+    max-height: 80vh;
     overflow-y: auto;
   }
 

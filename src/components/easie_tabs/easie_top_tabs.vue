@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="e-nav e-nav-tabs bar_tabs e-mb-2">
-      <li v-for="tab in tabs" v-bind:key="tab.id" class="e-nav-item" :class="{'active':tab.isActive}">
+      <li v-for="tab in tabs" :key="tab.id" class="e-nav-item" :class="{'active':tab.isActive}">
         <a @click="selectTab(tab)" class="e-nav-link" >{{ tab.name }}</a>
       </li>
     </ul>

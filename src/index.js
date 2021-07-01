@@ -40,6 +40,7 @@ export { default as easieAce } from './components/easie_ace/easie_ace.vue';
 export { default as easieAppContainer } from './components/easie_app_container/easie_app_container.vue';
 
 export { default as easieCheckbox } from './components/easie_checkbox/easie_checkbox.vue';
+export { default as easieDropdownInput } from './components/easie_dropdown_input/easie_dropdown_input.vue';
 export { default as easieFormInput } from './components/easie_form_input/easie_form_input.vue';
 export { default as easieHr } from './components/easie_hr/easie_hr.vue';
 

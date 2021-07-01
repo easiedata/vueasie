@@ -7,26 +7,20 @@
       @search="on_search"
 
       v-model="sel_val"
-      :options="sel_options"
-      :append-to-body="true"
-
-
-      :placeholder="placeholder"
-      :clearable="clearable"
-      :searchable="searchable"
-      :filterable="filterable"
-      :multiple="multiple"
-
-      :label="label"
-      :reduce="reduce"
-      >
+      v-bind="{
+        'clearable': false,
+        ...$attrs,
+        'autocomplete':'nope',
+        'append-to-body': true,
+        'options': sel_options
+      }">
       <template #open-indicator="{ attributes }">
         <span class="easie-select-open-icon" v-bind="attributes">
           <font-awesome-icon class="easie-select-open-icon-arrow" icon="caret-down"></font-awesome-icon>
         </span>
       </template>
       <template slot="no-options">
-        Opção não Encontrada...
+        {{ no_options_label}}...
       </template>
     </v-select>
   </div>
@@ -37,24 +31,16 @@
 
   export default {
     name: 'easie-select',
+    inheritAttrs: false,
     components:{
       vSelect
     },
     props:{
+      no_options_label:{default: 'Opção não encontrada'},
       value:{required:true},
       options:{required:false},
-      placeholder:{required:false},
       icon:{required:false},
-      multiple:{default: false},
-      clearable:{default:false},
-      searchable:{default: false},
-      filterable:{default: true},
       search_options:{default: false},
-      label:{default: 'label'},
-      reduce: {
-        type: Function,
-        default: option => option,
-      }
     },
     data(){
       return {
@@ -65,7 +51,7 @@
     },
     methods:{
       on_search(search, loading){
-        if(search.length && this.$is_function(this.search_options)){
+        if(this.$is_function(this.search_options)){
           if (this.timeout){ clearTimeout(this.timeout)}
           this.timeout = setTimeout(() => {
             this.search_options(this, search, loading);
@@ -86,11 +72,9 @@
         icon_el.setAttribute('class', this.icon + ' easie-select-icon mx-2');
         this.$refs.v_select.$refs.selectedOptions.prepend(icon_el);
       }
-
       if(this.$is_function(this.search_options)){
-        this.search_options(this, '', ()=> {})
+        this.on_search('', false);
       }
-      
     },
     watch:{
       value(){
@@ -114,6 +98,7 @@
     position: relative;
     align-items: flex-start;
     width:100%;
+    min-width: 70px;
   }
 
 
@@ -156,7 +141,7 @@
   /*vs stuff*/
   .vs__selected-options {
     padding:0px;
-    flex-wrap: nowrap;
+    // flex-wrap: wrap;
     overflow: hidden;
   }
 

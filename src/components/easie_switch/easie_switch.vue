@@ -1,7 +1,7 @@
 <template>
     <span class="e-d-flex e-align-items-center easie-switch-span" >
       <label class="easie-switch">
-        <input @input="on_input" :checked="value" v-model="value" type="checkbox"/>
+        <input @input="on_input" :checked="value" :value="value" type="checkbox"/>
         <div>
           <span>
           </span>
