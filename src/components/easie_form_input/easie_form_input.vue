@@ -4,8 +4,8 @@
     :class="{'focus': active}">
     <input
       ref="input_ref"
+      v-on="listeners"
       @keyup.enter="$emit('enter')"
-      @input="on_input"
       @focus="focus"
       @blur="blur"
       v-inputmask="i_mask"
@@ -21,6 +21,7 @@
 
 <script>
   import Inputmask from 'inputmask';
+
   export default {
     name: 'easie-form-input',
     directives:{
@@ -46,10 +47,16 @@
       }
     },
     computed:{
+      listeners(){
+        return {
+          ...this.$listeners,
+          'input': event => this.on_input()
+        }
+      },
       input_type(){
         let easie_types = ['number', 'date', 'text', 'time']
         if(easie_types.indexOf(this.type)>=0){
-          return 'search';
+          return 'text';
         }
         else {
           return this.type;
@@ -58,11 +65,14 @@
     },
     methods:{
       get_value(value){
+        if(!value){
+          return ''
+        }
         if(value.length==0){
           return value;
         }
         if(this.type == 'number'){
-          value = (value[0]=='-' ? '-' : '') + value.toString().replace(/[^0-9\.,]/g, '')
+          value = (value[0]=='-' ? '-' : '') + value.toString().replace(/[^0-9\.]/g, '')
         }
         return value;
       },

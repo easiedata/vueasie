@@ -39,6 +39,11 @@
       <easie-form-input type="number" v-model="input_test" style='max-width:150px'>
       </easie-form-input>
     </div>
+
+    <div class="e-mt-4 e-px-4">
+      <easie-dropdown-input v-model="dropdown_input_value" :suggestions="dropdown_input_opts" style='max-width:150px'>
+      </easie-dropdown-input>
+    </div>
     <div class="e-mt-4 e-px-4">
       <easie-hr v-model="visible" hr_label="Componente">
       </easie-hr>
@@ -126,6 +131,8 @@ export default {
   name: 'App',
   data() {
     return {
+      dropdown_input_value: '', 
+      dropdown_input_opts: ['Aloha', 'Amalie', 'Charlotte', 'Josie', 'Hawaii', 'Vacation'], 
       tooltip_content: `
       <div>
         <div class='e-d-flex e-justify-content-center'>
