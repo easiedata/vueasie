@@ -4,11 +4,16 @@
       @input="$emit('input', sel_val)"
       class="easie-tree-select" :class="{'active':active}"
       v-model="sel_val"
-      :append-to-body="true"
-      :disable-branch-nodes="true"
-      :show-count="true"
-      :clearable="clearable"
-      :options="options">
+
+      v-bind="{
+        'disable-branch-nodes': true,
+        'show-count': true,
+        'clearable': clearable,
+        'append-to-body': true,
+        'options': options,
+        ...$attrs
+      }"
+      >
     </treeselect>
   </div>
 </template>
@@ -34,13 +39,17 @@
       }
     },
     mounted(){
-      this.$el.querySelector('input.vue-treeselect__input').addEventListener('focus', () => {
-        this.active = true;
-      });
-      this.$el.querySelector('input.vue-treeselect__input').addEventListener('focusout', () => {
-        this.active = false;
-      });
-  
+      let input = this.$el.querySelector('input.vue-treeselect__input');
+      if(input){
+        input.addEventListener('focus', () => {
+          this.active = true;
+        });
+        input.addEventListener('focusout', () => {
+          this.active = false;
+        });
+      }
+
+
     },
     watch:{
       value(){

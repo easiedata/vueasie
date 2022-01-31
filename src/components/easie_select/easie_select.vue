@@ -9,10 +9,11 @@
       v-model="sel_val"
       v-bind="{
         'clearable': false,
-        ...$attrs,
         'autocomplete':'nope',
         'append-to-body': true,
-        'options': sel_options
+        'options': sel_options,
+        ...$attrs,
+
       }">
       <template #open-indicator="{ attributes }">
         <span class="easie-select-open-icon" v-bind="attributes">
