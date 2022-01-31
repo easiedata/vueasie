@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="e-p-3 e-mb-2">
-    
+
     <div class="e-d-flex e-flex-row e-align-items-center">
       <label class="e-mr-2"> V-Tooltip -> </label>
       <label v-tooltip="{
@@ -131,8 +131,8 @@ export default {
   name: 'App',
   data() {
     return {
-      dropdown_input_value: '', 
-      dropdown_input_opts: ['Aloha', 'Amalie', 'Charlotte', 'Josie', 'Hawaii', 'Vacation'], 
+      dropdown_input_value: '',
+      dropdown_input_opts: ['Aloha', 'Amalie', 'Charlotte', 'Josie', 'Hawaii', 'Vacation'],
       tooltip_content: `
       <div>
         <div class='e-d-flex e-justify-content-center'>
@@ -149,7 +149,36 @@ export default {
       checked: false,
       sel_test: '=',
       test_options: ['=', '>', '>=', '<', '<=',  '!='],
-      test_tree_options: [{id: 'bla', label: 'bla', children: [{id: 'aloha_bla',label: 'aloha_bla'},{id: 'mahalo_bla', label: 'mahalo_bla'}]},{id: 'ble', label: 'ble', children: [{id: 'aloha_ble',label: 'aloha_ble'},{id: 'mahalo_ble',label: 'mahalo_ble'}]}],
+      test_tree_options: [
+        {
+          id: 'bla',
+          label: 'bla',
+          children: [
+            {
+              id: 'aloha_bla', label: 'aloha_bla'
+            },
+            {
+              id: 'mahalo_bla', label: 'mahalo_bla', children:[
+                {id:JSON.stringify({'aloha': 'easiedata_val'}), 'label':'easiedata' }
+              ]
+            }
+            ]
+        },
+        {
+          id: 'ble',
+          label: 'ble',
+          children: [
+            {
+              id: 'aloha_ble',
+              label: 'aloha_ble'
+            },
+            {
+              id: 'mahalo_ble',
+              label: 'mahalo_ble'
+            }
+          ]
+        }
+      ],
       tree_sel_test: 'aloha_ble',
       group_mode: 'new',
       apply_label: 'Opção escolhida:',
