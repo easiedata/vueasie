@@ -17,6 +17,8 @@
       <div class="e-d-flex e-justify-content-around e-w-25">
         <font-awesome-icon :icon="['fab', 'js']"></font-awesome-icon>
         <font-awesome-icon :icon="['fas', 'info-circle']"></font-awesome-icon>
+        <font-awesome-icon :icon="['fas', 'sort-alpha-up']"></font-awesome-icon>
+        <font-awesome-icon :icon="['fas', 'sort-alpha-down']"></font-awesome-icon>
       </div>
     </div>
 
