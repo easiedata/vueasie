@@ -10,7 +10,10 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faAngleUp, faAngleDown, faCaretDown, faChevronDown, faSave, faWrench, faChartLine, faChartBar,
     faChartPie, faComment, faSuperscript, faDatabase, faEdit, faTrash, faAngleDoubleLeft,
-    faAngleDoubleRight, faTimes, faPlay, faInfoCircle, faHome, faMagic, faTable} from '@fortawesome/free-solid-svg-icons';
+    faAngleDoubleRight, faTimes, faPlay, faInfoCircle, faHome, faMagic, faTable, faCopy, faPlus, faUpload,
+    faSortAlphaUp, faSortAlphaDown
+} from '@fortawesome/free-solid-svg-icons';
+
 import { faJs } from '@fortawesome/free-brands-svg-icons'
 
 import VTooltip from 'v-tooltip';
@@ -26,7 +29,9 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 library.add(
     faAngleDown, faAngleUp, faCaretDown, faChevronDown, faSave, faWrench, faChartLine, faChartBar, faChartPie, faComment,
     faSuperscript, faDatabase, faEdit, faTrash, faAngleDoubleLeft, faAngleDoubleRight, faTimes, faJs, faPlay, faInfoCircle,
-    faHome, faMagic, faTable);
+    faHome, faMagic, faTable, faCopy, faPlus, faUpload, faSortAlphaUp, faSortAlphaDown
+);
+
 
 let easiedata = Vue => {
     Object.values(easieComponents).forEach((easieComponent) => {

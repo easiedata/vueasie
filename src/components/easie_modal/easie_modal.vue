@@ -31,7 +31,7 @@
     },
     computed: {
       modal_width() {
-        return "width:" + this.width;
+        return 'width:' + this.width;
       },
       modal_wrapper() {
         if(this.modal_super){
@@ -72,6 +72,7 @@
     z-index: 975;
     background-color: rgba(10, 10, 10, .6);
   }
+
   .easie-modal-wrapper-super {
     position: fixed;
     top: 0;
@@ -81,6 +82,7 @@
     z-index: 1055;
     background-color: rgba(10,10,10,.6);
   }
+
   .easie-modal {
     margin: 30px auto;
     border-radius: 15px;
