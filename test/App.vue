@@ -19,6 +19,7 @@
         <font-awesome-icon :icon="['fas', 'info-circle']"></font-awesome-icon>
         <font-awesome-icon :icon="['fas', 'sort-alpha-up']"></font-awesome-icon>
         <font-awesome-icon :icon="['fas', 'sort-alpha-down']"></font-awesome-icon>
+        <font-awesome-icon :icon="['fas', 'user-plus']"></font-awesome-icon>
       </div>
     </div>
 

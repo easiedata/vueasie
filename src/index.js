@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faAngleUp, faAngleDown, faCaretDown, faChevronDown, faSave, faWrench, faChartLine, faChartBar,
     faChartPie, faComment, faSuperscript, faDatabase, faEdit, faTrash, faAngleDoubleLeft,
     faAngleDoubleRight, faTimes, faPlay, faInfoCircle, faHome, faMagic, faTable, faCopy, faPlus, faUpload,
-    faSortAlphaUp, faSortAlphaDown
+    faSortAlphaUp, faSortAlphaDown, faUserPlus
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faJs } from '@fortawesome/free-brands-svg-icons'
@@ -29,7 +29,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 library.add(
     faAngleDown, faAngleUp, faCaretDown, faChevronDown, faSave, faWrench, faChartLine, faChartBar, faChartPie, faComment,
     faSuperscript, faDatabase, faEdit, faTrash, faAngleDoubleLeft, faAngleDoubleRight, faTimes, faJs, faPlay, faInfoCircle,
-    faHome, faMagic, faTable, faCopy, faPlus, faUpload, faSortAlphaUp, faSortAlphaDown
+    faHome, faMagic, faTable, faCopy, faPlus, faUpload, faSortAlphaUp, faSortAlphaDown, faUserPlus
 );
 
 
